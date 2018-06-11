@@ -1,0 +1,164 @@
+<app-mainmenu></app-mainmenu>
+<div class="page-content-wrapper">
+  <ul class="page-breadcrumb breadcrumb">
+    <li>
+      <span>Patient Visit</span>
+      <i class="fa fa-chevron-right"></i>
+
+    </li>
+    <li>
+      <span>New Patient Visit</span>
+      <i class="fa fa-chevron-right"></i>
+    </li>
+  </ul>
+
+
+  <div class="page-content-inner">
+
+    <div class="row">
+      <div class="col-md-12 ">
+
+        <div class="portlet gray ">
+
+          <div class="title">
+            Patient Information
+          </div>
+
+
+          <div class="portlet-body form">
+
+
+            <form [formGroup]="form" class="ui form">
+              <div class="form-body">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="note note-success" style="display:none">
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Medical No.</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" formControlName="medicalno">
+                        <span class="input-group-addon hand-cursor" (click)="getPatientDetails()">
+                          <i class="fa fa-search"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">First Name</label>
+                      <input type="text" readonly="readonly" formControlName="firstname" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Middle Name</label>
+                      <input type="text" readonly="readonly" formControlName="secondname" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Last Name</label>
+                      <input type="text" readonly="readonly" formControlName="lastname" class="form-control">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="divider"></div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Gender</label>
+                      <input type="text" readonly="readonly" formControlName="gender" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Nationality</label>
+                      <input type="text" readonly="readonly" formControlName="nationality" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Birthdate</label>
+                      <input type="text" readonly="readonly" formControlName="birthdate" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Email Address</label>
+                      <input type="text" readonly="readonly" formControlName="emailaddress" class="form-control">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="divider"></div>
+                <div class="form-actions">
+                  <button class="btn btn-primary rounded" type="button" (click)="createPatientVisit()">Create Visit</button>
+                  <button class="btn default rounded" type="button" (click)="onClear()">Clear</button>
+                </div>
+              </div>
+            </form>
+            <div class="divider"></div>
+
+            <div class=" padding-10">
+              <p-toolbar styleClass="p-toolbar">
+                <div class="ui-toolbar-group-right">
+                    <button class="btn rounded btn-info"  type="button"  (click)="reloadVisit()" >Refresh</button>
+                  <button *ngIf="medicalno!=''" class="btn rounded btn-info"  type="button" (click)="updateMainOrder()" >Results</button>
+                  <button  *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Survey</button>
+                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Health Score</button>
+                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >CVD Score</button>
+                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Pre-Diabetic Score</button>
+                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Overall Report</button>
+                </div>
+              </p-toolbar>
+              <div class="row">
+                <div class="col-md-12">
+                  <p-table [value]="patientorders" #dt  selectionMode="single" (onRowSelect)="onRowSelect($event)" [(selection)]="selectedRows">
+                    <ng-template pTemplate="header">
+                      <tr>
+                        <th>Visit No</th>
+                        <th>Visit Date</th>
+                        <th>HBA1C</th>
+                        <th>Total Cholesterol</th>
+                        <th>HDLC</th>
+                        <th>LDLC</th>
+                        <th>Triglycerides</th>
+                        <th>Bloodpressure</th>
+                        <th>Waist</th>
+                        <th>BMI</th>
+
+                      </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-row>
+                        <tr [pSelectableRow]="row" >
+                        <td>{{row.visitno}}</td>
+                        <td>{{row.datecreated}}</td>
+                        <td>{{row.hba1c}}</td>
+                        <td>{{row.totalcholesterol}}</td>
+                        <td>{{row.hdlc}}</td>
+                        <td>{{row.ldlc}}</td>
+                        <td>{{row.triglycerides}}</td>
+                        <td>{{row.bloodpressure}}</td>
+                        <td>{{row.waist}}</td>
+                        <td>{{row.bmi}}</td>
+                      </tr>
+                    </ng-template>
+                  </p-table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

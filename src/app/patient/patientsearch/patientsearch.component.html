@@ -1,0 +1,93 @@
+<app-mainmenu></app-mainmenu>
+<div class="page-content-wrapper">
+  <ul class="page-breadcrumb breadcrumb">
+    <li>
+      <span>Patient</span>
+      <i class="fa fa-chevron-right"></i>
+
+    </li>
+    <li>
+      <span>Search Patient</span>
+      <i class="fa fa-chevron-right"></i>
+    </li>
+  </ul>
+
+
+  <div class="page-content-inner">
+
+    <div class="row">
+      <div class="col-md-12 ">
+        <div class="portlet gray ">
+          <div class="title">
+            Patient List
+          </div>
+
+
+          <div class="portlet-body padding-10">
+            <p-toolbar styleClass="p-toolbar">
+              <div class="ui-toolbar-group-left">
+                <button class="btn rounded btn-info" (click)="reloadPatient()" type="button" label="New" icon="pi pi-plus">Refresh</button>
+                <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="openEditDialog()" type="button" label="New" icon="pi pi-plus">Edit Patient</button>
+              </div>
+            </p-toolbar>
+            <p-table #dt [value]="patients" selectionMode="single" (onRowSelect)="onRowSelect($event)" [(selection)]="selectedRows">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th style="width:150px;">
+                    <input class="form-control p-search" type="text" (input)="dt.filter($event.target.value, 'medicalno','contains')">
+                  </th>
+                  <th>
+                    <input class="form-control p-search" type="text" (input)="dt.filter($event.target.value, 'firstname','contains')">
+                  </th>
+                  <th>
+                    <input class="form-control p-search" type="text" (input)="dt.filter($event.target.value, 'secondname','contains')">
+                  </th>
+                  <th>
+                    <input class="form-control p-search" type="text" (input)="dt.filter($event.target.value, 'lastname','contains')">
+                  </th>
+                  <th style="width:100px;">
+                    <input class="form-control p-search" type="text" (input)="dt.filter($event.target.value, 'gender','contains')">
+                  </th>
+                  <th style="width:200px;">
+                    <input class="form-control p-search" type="text" (input)="dt.filter($event.target.value, 'nationality','contains')">
+                  </th>
+                  <th style="width:200px;">
+                    <input class="form-control p-search" type="text" (input)="dt.filter($event.target.value, 'emailaddress','contains')">
+                  </th>
+                </tr>
+                <tr>
+                  <th>Medical No.</th>
+                  <th>First Name</th>
+                  <th>Second Name</th>
+                  <th>Last Name</th>
+                  <th>Gender</th>
+                  <th>Nationality</th>
+                  <th>Email Address</th>
+
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-row>
+                <tr [pSelectableRow]="row">
+                  <td>{{row.medicalno}}</td>
+                  <td>{{row.firstname}}</td>
+                  <td>{{row.secondname}}</td>
+                  <td>{{row.lastname}}</td>
+                  <td>{{row.gender}}</td>
+                  <td>{{row.nationality}}</td>
+                  <td>{{row.emailaddress}}</td>
+                </tr>
+              </ng-template>
+
+            </p-table>
+
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

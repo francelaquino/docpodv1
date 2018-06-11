@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+.btn{
+    margin-right:5px;
+}
+.p-toolbar{
+    margin-bottom: 5px !important;
+}
+
+p-growl {
+    z-index: 99999999999 !important;
+}
+
+
+
+
+
+  .blue{
+      background-color: #0070c0;
+      color:white;
+  }
+
+  .green{
+    background-color: #00b050;
+    color:white;
+}
+
+.amber{
+    background-color: #ffc000;
+    color:white;
+}
+
+.lightred{
+    background-color: #ff0000;
+    color:white;
+}
+
+.red{
+    background-color: #c00000;
+    color:white;
+}
+
+.yellow{
+    background-color: #ffff00;
+    color:white;
+}
+
+.modal-questioanaire{
+    overflow: visible !important;
+    max-width: 800px !important;
+}
