@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-12 ">
+
+    <div class=" gray ">
+
+      <div class="title">
+        Health Score
+      </div>
+      <div class="rows p-3">
+        <div class="col-md-12">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr style="background-color: #07c39e;color:white">
+                <th scope="col">Test</th>
+                <th scope="col">Healthy Values
+                  <br/>(Target Levels)</th>
+                <th scope="col">Points</th>
+                <th scope="col">Your Results</th>
+                <th scope="col">Your Risk Category</th>
+                <th scope="col">Your Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let h of healthscore">
+                <td>{{h.test}}</td>
+                <td>{{h.target}}</td>
+                <td>{{h.target_points}}</td>
+                <td>{{h.result}}</td>
+                <td>
+                  <div *ngIf="h.risk_category" style="padding:5px" class="{{h.color}}">
+                    {{h.risk_category}}
+                  </div>
+                </td>
+                <td>{{h.result_points}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+          <div class="divider"></div>
+          <div class="form-actions text-right">
+            <button class="btn default rounded" type="button" (click)="bsModalRef.hide()">Close</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

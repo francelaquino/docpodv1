@@ -1,0 +1,268 @@
+<app-mainmenu></app-mainmenu>
+
+<div class="page-content-wrapper">
+  <ul class="page-breadcrumb breadcrumb">
+    <li>
+      <span>Goal Setting</span>
+      <i class="fa fa-chevron-right"></i>
+
+    </li>
+    <li>
+      <span>Record Goal Setting</span>
+      <i class="fa fa-chevron-right"></i>
+    </li>
+  </ul>
+
+
+  <div class="page-content-inner">
+
+    <div class="row">
+      <div class="col-md-12 ">
+
+        <div class="portlet gray ">
+
+          <div class="title">
+            Record Goal Setting
+          </div>
+          <div class="portlet-body form">
+            <form [formGroup]="form" class="ui form">
+              <div class="form-body">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="note note-success" style="display:none">
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Medical No.</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" formControlName="medicalno">
+                        <span class="input-group-addon hand-cursor" (click)="getPatientDetails()">
+                          <i class="fa fa-search"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">First Name</label>
+                      <input type="text" readonly="readonly" formControlName="firstname" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Middle Name</label>
+                      <input type="text" readonly="readonly" formControlName="secondname" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Last Name</label>
+                      <input type="text" readonly="readonly" formControlName="lastname" class="form-control">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="divider"></div>
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Gender</label>
+                      <input type="text" readonly="readonly" formControlName="gender" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Nationality</label>
+                      <input type="text" readonly="readonly" formControlName="nationality" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Birthdate</label>
+                      <input type="text" readonly="readonly" formControlName="birthdate" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label class="control-label">Email Address</label>
+                      <input type="text" readonly="readonly" formControlName="emailaddress" class="form-control">
+                    </div>
+                  </div>
+
+                </div>
+
+
+              </div>
+            </form>
+            <div class="form-body">
+              <p-toolbar styleClass="p-toolbar">
+                <div class="ui-toolbar-group-right">
+
+                  <button class="btn rounded btn-info" type="button" (click)="visitcontrol='first';getPatientVisits()">Set First Result</button>
+                  <button class="btn rounded btn-info" type="button"  (click)="visitcontrol='second';getPatientVisits()">Set Second Result</button>
+                </div>
+              </p-toolbar>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr style="background-color: #07c39e;color:white">
+                    <th scope="col" style="width:200px">Test</th>
+                    <th scope="col" style="width:150px">First Result<br>Visit No </th>
+                    <th scope="col" style="width:150px">Points</th>
+                    <th scope="col" style="width:150px">Target Result</th>
+                    <th scope="col" style="width:150px">Second Result<br>Visit No</th>
+                    <th scope="col" style="width:150px">Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>HDLC (Good Cholesterol)</td>
+                    <td>{{first_hdlc}}</td>
+                    <td>{{first_hdlc_points}}</td>
+                    <td>{{target_hdlc}}</td>
+                    <td>{{second_hdlc}}</td>
+                    <td >{{second_hdlc_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>LDLC (Bad Cholesterol)</td>
+                    <td>{{first_ldlc}}</td>
+                    <td>{{first_ldlc_points}}</td>
+                    <td>{{target_ldlc}}</td>
+                    <td>{{second_ldlc}}</td>
+                    <td>{{second_ldlc_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total Cholesterol</td>
+                    <td>{{first_totalcholesterol}}</td>
+                    <td>{{first_totalcholesterol_points}}</td>
+                    <td>{{target_totalcholesterol}}</td>
+                    <td>{{second_totalcholesterol}}</td>
+                    <td>{{second_totalcholesterol_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>Triglycerides</td>
+                    <td>{{first_triglycerides}}</td>
+                    <td>{{first_triglycerides_points}}</td>
+                    <td>{{target_triglycerides}}</td>
+                    <td>{{second_triglycerides}}</td>
+                    <td>{{second_triglycerides_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>HbA1c</td>
+                    <td>{{first_hba1c}}</td>
+                    <td>{{first_hba1c_points}}</td>
+                    <td>{{target_hba1c}}</td>
+                    <td>{{second_hba1c}}</td>
+                    <td>{{second_hba1c_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>BMI</td>
+                    <td>{{first_bmi}}</td>
+                    <td>{{first_bmi_points}}</td>
+                    <td>{{target_bmi}}</td>
+                    <td>{{second_bmi}}</td>
+                    <td>{{second_bmi_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>Exercise (Moderate)</td>
+                    <td>{{first_exercise_moderate}}</td>
+                    <td>{{first_exercise_moderate_points}}</td>
+                    <td>{{target_exercise_moderate}}</td>
+                    <td>{{second_exercise_moderate}}</td>
+                    <td>{{second_exercise_moderate_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>Exercise (Vigorous)</td>
+                    <td>{{first_exercise_vigorous}}</td>
+                    <td>{{first_exercise_vigorous_points}}</td>
+                    <td>{{target_exercise_vigorous}}</td>
+                    <td>{{second_exercise_vigorous}}</td>
+                    <td>{{second_exercise_vigorous_points}}</td>
+                  </tr>
+
+                  <tr>
+                    <td>Smoker (Shisha)</td>
+                    <td>{{first_smoker_shisha}}</td>
+                    <td>{{first_smoker_shisha_points}}</td>
+                    <td>{{target_smoker_shisha}}</td>
+                    <td>{{second_smoker_shisha}}</td>
+                    <td>{{second_smoker_shisha_points}}</td>
+                  </tr>
+                  <tr>
+                    <td>Smoker (Cigarette)</td>
+                    <td>{{first_smoker_cigarette}}</td>
+                    <td>{{first_smoker_cigarette_points}}</td>
+                    <td>{{target_smoker_cigarette}}</td>
+                    <td>{{second_smoker_cigarette}}</td>
+                    <td>{{second_smoker_cigarette_points}}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog header="Select Visit" [(visible)]="visitDialog"  modal="true" [style]="{'max-width':'1500px'}"
+  responsive="true">
+  <div class="row">
+    <div class="col-md-12">
+        <p-toolbar styleClass="p-toolbar">
+            <div class="ui-toolbar-group-right">
+
+              <button class="btn rounded btn-info" type="button" (click)="getSelectedVisit()">Get Visit</button>
+            </div>
+          </p-toolbar>
+      <p-table [value]="patientorders" #dt selectionMode="single" (onRowSelect)="onRowSelect($event)"  [(selection)]="selectedRows">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Visit No</th>
+            <th>Visit Date</th>
+            <th>HBA1C</th>
+            <th>Total Cholesterol</th>
+            <th>HDLC</th>
+            <th>LDLC</th>
+            <th>Triglycerides</th>
+            <th>Bloodpressure</th>
+            <th>Waist</th>
+            <th>BMI</th>
+
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-row>
+          <tr [pSelectableRow]="row">
+            <td>{{row.visitno}}</td>
+            <td>{{row.datecreated}}</td>
+            <td>{{row.hba1c}}</td>
+            <td>{{row.totalcholesterol}}</td>
+            <td>{{row.hdlc}}</td>
+            <td>{{row.ldlc}}</td>
+            <td>{{row.triglycerides}}</td>
+            <td>{{row.bloodpressure}}</td>
+            <td>{{row.waist}}</td>
+            <td>{{row.bmi}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="divider"></div>
+      <div class="form-actions text-right" style="margin-top:10px">
+        <button class="btn default rounded" type="button" (click)="visitDialog=false">Close</button>
+      </div>
+    </div>
+  </div>
+
+</p-dialog>

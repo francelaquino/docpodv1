@@ -7,13 +7,14 @@ import { FormGroup,FormBuilder, FormControl} from '@angular/forms';
 import { Utilities } from '../../shared/utilities';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap';
-//import { HealthscoreV1Component } from '../../patientorder/healthscore-v1/healthscore-v1.component';
-//import { CvdscoreV1Component } from '../../patientorder/cvdscore-v1/cvdscore-v1.component';
-//import { DocpodreportV1Component } from '../../patientorder/docpodreport-v1/docpodreport-v1.component';
-//import { PrediabeticV1Component } from '../../patientorder/prediabetic-v1/prediabetic-v1.component';
 import { ResultComponent } from '../../visit/result/result.component';
 import { SurveyV1Component } from '../../visit/survey-v1/survey-v1.component';
-
+import { HealthscoreV1Component } from '../../visit/healthscore-v1/healthscore-v1.component';
+import { CvdscoreV1Component } from '../../visit/cvdscore-v1/cvdscore-v1.component';
+import { PrediabeticscoreV1Component } from '../../visit/prediabeticscore-v1/prediabeticscore-v1.component';
+import { OverallscoreV1Component } from '../../visit/overallscore-v1/overallscore-v1.component';
+declare var jquery: any;
+declare var $: any;
 @Component({
   selector: 'app-patientvisit',
   templateUrl: './patientvisit.component.html',
@@ -41,6 +42,8 @@ export class PatientvisitComponent implements OnInit {
         nationality: [''],
         emailaddress: ['']
       })
+
+      $(".ifSelected").attr('disabled','disabled');
     }
 
     reloadVisit(){
@@ -48,14 +51,18 @@ export class PatientvisitComponent implements OnInit {
       this.visitno="";
       this.selectedRows=[];
       this.patientorders=[];
+      $(".ifSelected").attr('disabled','disabled');
       this.patientService.getPatientOrders(this.form.value.medicalno).subscribe(response => {
         this.patientorders=response;
        });
+       
     }
 
     onRowSelect(event){
       this.medicalno=event.data.medicalno;
       this.visitno=event.data.visitno;
+      $('.ifSelected').removeAttr('disabled');
+
     }
   
     public updateMainOrder() {
@@ -65,41 +72,46 @@ export class PatientvisitComponent implements OnInit {
         this.bsModalRef.content.visitno = this.visitno;
   }
 
-  public updateSurvey1() {
+  public showSurvey_v1() {
       
     this.bsModalRef = this.modalService.show(SurveyV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-questioanaire'});
     this.bsModalRef.content.medicalno = this.medicalno;
     this.bsModalRef.content.visitno = this.visitno;
 }
 
-    /*
-  public showHealthScore_v1(medicalno:string,visitno:string) {
+public showHealthScore_v1() {
       
-    this.bsModalRef = this.modalService.show(HealthscoreV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
-      this.bsModalRef.content.medicalno = medicalno;
-      this.bsModalRef.content.visitno = visitno;
-}
-public showCVDScore_v1(medicalno:string,visitno:string) {
-      
-  this.bsModalRef = this.modalService.show(CvdscoreV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
-    this.bsModalRef.content.medicalno = medicalno;
-    this.bsModalRef.content.visitno = visitno;
-}
- 
-public showDocPodReport_v1(medicalno:string,visitno:string) {
-    
-  this.bsModalRef = this.modalService.show(DocpodreportV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
-    this.bsModalRef.content.medicalno = medicalno;
-    this.bsModalRef.content.visitno = visitno;
-}
-public showPrediabetic_v1(medicalno:string,visitno:string) {
-    
-  this.bsModalRef = this.modalService.show(PrediabeticV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
-    this.bsModalRef.content.medicalno = medicalno;
-    this.bsModalRef.content.visitno = visitno;
+  this.bsModalRef = this.modalService.show(HealthscoreV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
+    this.bsModalRef.content.medicalno = this.medicalno;
+    this.bsModalRef.content.visitno = this.visitno;
 }
 
-*/
+public showCVDScore_v1() {
+      
+  this.bsModalRef = this.modalService.show(CvdscoreV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
+    this.bsModalRef.content.medicalno = this.medicalno;
+    this.bsModalRef.content.visitno = this.visitno;
+}
+
+
+
+public showPreDiabeticScore_v1() {
+    
+  this.bsModalRef = this.modalService.show(PrediabeticscoreV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
+    this.bsModalRef.content.medicalno = this.medicalno;
+    this.bsModalRef.content.visitno = this.visitno;
+}
+
+
+public showOverAllScore_v1() {
+    
+  this.bsModalRef = this.modalService.show(OverallscoreV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-xl'});
+    this.bsModalRef.content.medicalno = this.medicalno;
+    this.bsModalRef.content.visitno = this.visitno;
+}
+    
+ 
+
   
 
 getPatientDetails(){
@@ -137,6 +149,16 @@ createPatientVisit() {
       this.patientorders=response;
      });
   });
+}
+
+deleteVisit(){
+  if(this.medicalno!="" || this.visitno!=""){
+    if (confirm('Are you sure you want to save this thing into the database?')) {
+      this.patientService.deleteVisit(this.medicalno,this.visitno).subscribe(response => {
+        this.reloadVisit();
+      });
+    }
+  }
 }
 
 

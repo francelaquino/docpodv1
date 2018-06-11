@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-12 ">
+
+    <div class=" gray ">
+
+      <div class="title">
+        Docpod Report
+      </div>
+      <div class="rows p-3">
+        <div class="col-md-12">
+
+            <table class="table table-bordered table-striped">
+                <tbody>
+                  <tr *ngFor="let h of healthscore">
+                    <td>
+                        <h6>{{h.test}} </h6>
+                        <div>
+                            <p>{{h.result1}}
+                              <span style="float:right;width:30px;height:30px" *ngIf="h.risk_category" class="{{h.color}}"></span>
+                            </p>
+                            <p>{{h.message}}</p>
+                          </div>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+
+
+
+         
+
+          <div class="form-actions text-right">
+            <button class="btn default rounded" type="button" (click)="bsModalRef.hide()">Close</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

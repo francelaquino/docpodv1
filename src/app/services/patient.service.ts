@@ -88,6 +88,11 @@ export class PatientService {
     return this.http.get(this.baseUrl + '/' + 'analysis/prediabetic_v1/' + medicalno + '/' + visitno)
   }
   
+  deleteVisit(medicalno: string, visitno: string) {
+    return this.http.get(this.baseUrl + '/' + 'visit/deletepatientvisit/' + medicalno + '/' + visitno)
+  }
+  
+  
 
   updateResults(data: any) {
     

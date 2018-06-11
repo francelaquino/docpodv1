@@ -1,0 +1,90 @@
+
+  <div class="row">
+    <div class="col-md-12 ">
+
+      <div class=" gray ">
+
+        <div class="title">
+          Prediabetic Score
+        </div>
+        <div class="rows p-3">
+          <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr style="background-color: #07c39e;color:white">
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col">Points</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Age</td>
+                  <td>{{prediabetic.age}}</td>
+                  <td>{{prediabetic.agescore}}</td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
+                  <td>{{prediabetic.gender}}</td>
+                  <td>{{prediabetic.genderscore}}</td>
+                </tr>
+                <tr>
+                  <td>If you have ever been pregnant, did you have diabetes during your pregnancy(gestational diabetes)?</td>
+                  <td>
+                    <span *ngIf="prediabetic.diabeteswhenpregnantscore==1">Yes</span>
+                    <span *ngIf="prediabetic.diabeteswhenpregnantscore==0">No</span>
+                  </td>
+                  <td>{{prediabetic.diabeteswhenpregnantscore}}</td>
+                </tr>
+                <tr>
+                  <td>Has your mother, father, brother or sister ever been diagnosed with diabetes?</td>
+                  <td>
+                    <span *ngIf="prediabetic.familywithdiabeticscore==1">Yes</span>
+                    <span *ngIf="prediabetic.familywithdiabeticscore==0">No</span>
+                  </td>
+                  <td>{{prediabetic.familywithdiabeticscore}}</td>
+                </tr>
+                <tr>
+                  <td>Have you ever been diagnosed with high blood pressure?</td>
+                  <td>
+                    <span *ngIf="prediabetic.bloodpressurescore==1">Yes</span>
+                    <span *ngIf="prediabetic.bloodpressurescore==0">No</span>
+                  </td>
+                  <td>{{prediabetic.bloodpressurescore}}</td>
+                </tr>
+                <tr>
+                  <td>Are you physically active?</td>
+                  <td>
+                    <span *ngIf="prediabetic.physicallyactivescore==0">Yes</span>
+                    <span *ngIf="prediabetic.physicallyactivescore==1">No</span>
+                  </td>
+                  <td>{{prediabetic.physicallyactivescore}}</td>
+                </tr>
+                <tr>
+                  <td>BMI</td>
+                  <td>{{prediabetic.bmi}}({{prediabetic.bmimark}})</td>
+                  <td>{{prediabetic.bmiscore}}</td>
+                </tr>
+                <tr>
+                  <td>If >5 points you are likley to have pre-diabetes and be at risk of developing type 2 diabetes</td>
+                  <td>Total Risk Score</td>
+                  <td>{{prediabetic.totalscore}}
+                    <span style="float:right;width:30px;height:30px" class="{{prediabetic.color}}"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">{{prediabetic.message}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="divider"></div>
+            <div class="form-actions text-right">
+              <button class="btn default rounded" type="button" (click)="bsModalRef.hide()">Close</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>

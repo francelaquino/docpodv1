@@ -15,18 +15,13 @@
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="hasError('alreadyhavediabetic')">
                   <label class="control-label bold">1. Have you ever been diagnosed with diabetes?</label>
-                </div>
-              </div>
-              <div class="col-md-6">
                 <select class="form-control " formControlName="alreadyhavediabetic" id="alreadyhavediabetic" name="alreadyhavediabetic">
                   <option value="">--Select--</option>
                   <option value="Y">Yes</option>
                   <option value="N">No</option>
                 </select>
-
               </div>
-
-
+            </div>
             </div>
             <div *ngIf="form.controls.alreadyhavediabetic.value=='Y'">
 
@@ -34,116 +29,86 @@
                 <div class="col-md-12">
                   <div class="form-group" [ngClass]="hasError('typeofdiabetic')">
                     <label class="control-label bold">1.1 If you are a diabetic, what type are you?</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
                   <select class="form-control " formControlName="typeofdiabetic" id="typeofdiabetic" name="typeofdiabetic">
                     <option value="">--Select--</option>
                     <option value="type1">Type 1 Diabetic</option>
                     <option value="type2">Type 2 Diabetic</option>
                     <option value="doneknow">Don't know</option>
                   </select>
-
-
                 </div>
-
               </div>
             </div>
+          </div>
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="hasError('diabeteswhenpregnant')">
                   <label class="control-label bold">
                     2. If you have ever been pregnant, did you have diabetes during your pregnancy(gestational diabetes)?</label>
-                </div>
-              </div>
-              <div class="col-md-6">
                 <select class="form-control " formControlName="diabeteswhenpregnant" id="diabeteswhenpregnant" name="diabeteswhenpregnant">
                   <option value="">--Select--</option>
                   <option value="Y">Yes</option>
                   <option value="N">No</option>
                 </select>
               </div>
-
-
             </div>
+          </div>
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="hasError('familywithdiabetic')">
                   <label class="control-label bold">3. Has your mother, father, brother or sister ever been diagnosed with diabetes?</label>
-                </div>
-              </div>
-              <div class="col-md-6">
                 <select class="form-control " formControlName="familywithdiabetic" id="familywithdiabetic" name="familywithdiabetic">
                   <option value="">--Select--</option>
                   <option value="Y">Yes</option>
                   <option value="N">No</option>
                 </select>
-
               </div>
-
-
             </div>
+          </div>
 
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="hasError('familyheartdesease')">
                   <label class="control-label bold">4. Has your mother, father, brother or sister ever had heart disease or a stroke?</label>
-                </div>
-              </div>
-              <div class="col-md-6">
                 <select class="form-control " formControlName="familyheartdesease" id="familyheartdesease" name="familyheartdesease">
                   <option value="">--Select--</option>
                   <option value="Y">Yes</option>
                   <option value="N">No</option>
                 </select>
-
               </div>
-
-
             </div>
+          </div>
 
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="hasError('diagnosedwithhighbloodpressure')">
                   <label class="control-label bold">5. Have you ever been diagnosed with high blood pressure?</label>
-                </div>
-              </div>
-              <div class="col-md-6">
                 <select class="form-control " formControlName="diagnosedwithhighbloodpressure" id="diagnosedwithhighbloodpressure" name="diagnosedwithhighbloodpressure">
                   <option value="">--Select--</option>
                   <option value="Y">Yes</option>
                   <option value="N">No</option>
                 </select>
-
-
               </div>
-
-
             </div>
+          </div>
 
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="hasError('physicallyactive')">
                   <label class="control-label bold">6. Are you physically active?</label>
-                </div>
-              </div>
-              <div class="col-md-6">
                 <select class="form-control " formControlName="physicallyactive" id="physicallyactive" name="physicallyactive">
                   <option value="">--Select--</option>
                   <option value="Y">Yes</option>
                   <option value="N">No</option>
                 </select>
-
               </div>
-
-
-
             </div>
+          </div>
+
             <div *ngIf="form.controls.physicallyactive.value=='Y'">
 
 
@@ -151,33 +116,23 @@
                 <div class="col-md-12">
                   <div class="form-group" [ngClass]="hasError('typeofexercise')">
                     <label class="control-label bold">6.1. How would you describe most of your exercise?</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
                   <select class="form-control " formControlName="typeofexercise" id="typeofexercise" name="typeofexercise">
                     <option value="">--Select--</option>
                     <option value="Moderate">Moderate (e.g. walking, gentle swimming)</option>
                     <option value="Vigorous">Vigorous (e.g running, fast swimming)</option>
-
                   </select>
-
                 </div>
-
-
-
               </div>
-
             </div>
+            </div>
+
+
             <div *ngIf="form.controls.typeofexercise.value=='Moderate' && form.controls.physicallyactive.value=='Y'">
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group" [ngClass]="hasError('exerciseperweek30min')">
                     <label class="control-label bold">6.1.a. How many times each week do you exercise for atleast 30mins a day?</label>
-                  </div>
-                </div>
-
-                <div class="col-md-6">
                   <select class="form-control " formControlName="exerciseperweek30min" id="exerciseperweek30min" name="exerciseperweek30min">
                     <option value="">--Select--</option>
                     <option value="1">1 day a week</option>
@@ -187,23 +142,18 @@
                     <option value="5">5 days a week</option>
                     <option value="6">6 days a week</option>
                     <option value="7">7 days a week</option>
-
                   </select>
-
                 </div>
-
-
               </div>
             </div>
+          </div>
+
             <div *ngIf="form.controls.typeofexercise.value=='Vigorous' && form.controls.physicallyactive.value=='Y'">
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group" [ngClass]="hasError('exerciseperweek15min')">
                     <label class="control-label bold">6.1.a. How many times each week do you exercise for atleast 15mins a day?</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
                   <select class="form-control " formControlName="exerciseperweek15min" id="exerciseperweek15min" name="exerciseperweek15min">
                     <option value="">--Select--</option>
                     <option value="1">1 day a week</option>
@@ -213,32 +163,26 @@
                     <option value="5">5 days a week</option>
                     <option value="6">6 days a week</option>
                     <option value="7">7 days a week</option>
-
                   </select>
-
                 </div>
-
               </div>
             </div>
+          </div>
 
             <div class="row">
               <div class="col-md-12">
                 <div class="form-group" [ngClass]="hasError('doyousmoke')">
                   <label class="control-label bold">7. Do you smoke</label>
-                </div>
-              </div>
-              <div class="col-md-6">
                 <select class="form-control" formControlName="doyousmoke" id="doyousmoke" name="doyousmoke">
                   <option value="">--Select--</option>
                   <option value="N">No</option>
                   <option value="Y">Yes</option>
-
                 </select>
-
               </div>
-
-
             </div>
+          </div>
+
+
             <div *ngIf="form.controls.doyousmoke.value=='Y'">
 
 
@@ -246,9 +190,6 @@
                 <div class="col-md-12">
                   <div class="form-group" [ngClass]="hasError('doyousmokecigarette')">
                     <label class="control-label bold">7.1 Do you smoke cigarettes?</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
                   <select class="form-control " formControlName="doyousmokecigarette" id="doyousmokecigarette" name="doyousmokecigarette">
                     <option value="">--Select--</option>
                     <option value="occassionally">Occassionally</option>
@@ -256,22 +197,15 @@
                     <option value="6-10">6-10 cigarettes a day</option>
                     <option value="11-19">11-19 cigarettes a day</option>
                     <option value="20">More than 20 a day</option>
-
                   </select>
-
                 </div>
-
-
-
+              </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group" [ngClass]="hasError('doyousmokeshisha')">
                     <label class="control-label bold">7.2. Do you smoke shisha?</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
                   <select class="form-control " formControlName="doyousmokeshisha" id="doyousmokeshisha" name="doyousmokeshisha">
                     <option value="">--Select--</option>
                     <option value="occassionally">Occassionally</option>
@@ -279,12 +213,10 @@
                     <option value="2-3">2-3 times a week</option>
                     <option value="4-5">4-5 times a week</option>
                     <option value="6-7">Every day</option>
-
                   </select>
-
                 </div>
-
               </div>
+            </div>
             </div>
 
 

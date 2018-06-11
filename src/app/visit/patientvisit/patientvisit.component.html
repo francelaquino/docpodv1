@@ -98,11 +98,7 @@
 
                 </div>
 
-                <div class="divider"></div>
-                <div class="form-actions">
-                  <button class="btn btn-primary rounded" type="button" (click)="createPatientVisit()">Create Visit</button>
-                  <button class="btn default rounded" type="button" (click)="onClear()">Clear</button>
-                </div>
+                
               </div>
             </form>
             <div class="divider"></div>
@@ -110,13 +106,16 @@
             <div class=" padding-10">
               <p-toolbar styleClass="p-toolbar">
                 <div class="ui-toolbar-group-right">
-                    <button class="btn rounded btn-info"  type="button"  (click)="reloadVisit()" >Refresh</button>
-                  <button *ngIf="medicalno!=''" class="btn rounded btn-info"  type="button" (click)="updateMainOrder()" >Results</button>
-                  <button  *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Survey</button>
-                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Health Score</button>
-                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >CVD Score</button>
-                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Pre-Diabetic Score</button>
-                  <button *ngIf="medicalno!=''" class="btn rounded btn-info" (click)="updateSurvey1()" type="button" >Overall Report</button>
+                  
+                  <button class="btn rounded btn-info"  type="button"  (click)="reloadVisit()" >Refresh</button>
+                  <button class="btn rounded btn-info"  type="button"  (click)="createPatientVisit()" >Create New Visit</button>
+                  <button class="btn rounded btn-info ifSelected"  type="button" (click)="updateMainOrder()" >Results</button>
+                  <button  class="btn rounded btn-info ifSelected " (click)="showSurvey_v1()" type="button" >Survey</button>
+                  <button class="btn rounded btn-info ifSelected" (click)="showHealthScore_v1()" type="button" >Health Score</button>
+                  <button class="btn rounded btn-info ifSelected " (click)="showCVDScore_v1()" type="button" >CVD Score</button>
+                  <button class="btn rounded btn-info ifSelected" (click)="showPreDiabeticScore_v1()" type="button" >Pre-Diabetic Score</button>
+                  <button class="btn rounded btn-info ifSelected" (click)="showOverAllScore_v1()" type="button" >Overall Report</button>
+                  <button class="btn rounded btn-danger ifSelected" (click)="deleteVisit()" type="button" >Delete Visit</button>
                 </div>
               </p-toolbar>
               <div class="row">

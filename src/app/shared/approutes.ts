@@ -3,6 +3,7 @@ import { PatientregistrationComponent } from '../patient/patientregistration/pat
 import { PatientsearchComponent } from '../patient/patientsearch/patientsearch.component';
 import { PatientupdateComponent } from '../patient/patientupdate/patientupdate.component';
 import { PatientvisitComponent } from '../visit/patientvisit/patientvisit.component';
+import { GoalreportV1Component } from '../goalsetting/goalreport-v1/goalreport-v1.component';
 //import { CreateorderComponent } from '../patientorder/createorder/createorder.component';
 //import { PatientorderComponent } from '../patientorder/patientorder/patientorder.component';
 //import { VieworderComponent } from '../patientorder/vieworder/vieworder.component';
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
     { path: 'patient/registration', component: PatientregistrationComponent },
     { path: 'patient/search', component: PatientsearchComponent },
     { path: 'visit/patientvisit', component: PatientvisitComponent },
+    { path: 'goalsetting/reportv1', component: GoalreportV1Component },
   //  { path: 'patientorder/createorder', component: CreateorderComponent },
 //    { path: 'patientorder/patientorder', component: PatientorderComponent },
     //{ path: 'patientorder/survey1', component: Questionaire1Component },

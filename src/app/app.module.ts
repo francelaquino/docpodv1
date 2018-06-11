@@ -20,6 +20,11 @@ import { MainmenuComponent } from './mainmenu/mainmenu.component';
 import { PatientvisitComponent } from './visit/patientvisit/patientvisit.component';
 import { ResultComponent } from './visit/result/result.component';
 import { SurveyV1Component } from './visit/survey-v1/survey-v1.component';
+import { HealthscoreV1Component } from './visit/healthscore-v1/healthscore-v1.component';
+import { CvdscoreV1Component } from './visit/cvdscore-v1/cvdscore-v1.component';
+import { PrediabeticscoreV1Component } from './visit/prediabeticscore-v1/prediabeticscore-v1.component';
+import { OverallscoreV1Component } from './visit/overallscore-v1/overallscore-v1.component';
+import { GoalreportV1Component } from './goalsetting/goalreport-v1/goalreport-v1.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,14 +34,19 @@ import { SurveyV1Component } from './visit/survey-v1/survey-v1.component';
     MainmenuComponent,
     PatientvisitComponent,
     ResultComponent,
-    SurveyV1Component
+    SurveyV1Component,
+    HealthscoreV1Component,
+    CvdscoreV1Component,
+    PrediabeticscoreV1Component,
+    OverallscoreV1Component,
+    GoalreportV1Component
   ],
   imports: [
     BrowserModule,AppRouting,BrowserAnimationsModule,DataTableModule,SharedModule,MenuModule,CalendarModule,DialogModule,FormsModule,
     ReactiveFormsModule,HttpModule,HttpClientModule,ModalModule.forRoot(),TableModule,ToolbarModule
   ],
   entryComponents: [
-    PatientupdateComponent,ResultComponent,SurveyV1Component
+    PatientupdateComponent,ResultComponent,SurveyV1Component,HealthscoreV1Component,CvdscoreV1Component,PrediabeticscoreV1Component,OverallscoreV1Component
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [DataService,PatientService,Utilities],

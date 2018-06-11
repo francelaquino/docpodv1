@@ -1,0 +1,133 @@
+<div class="row">
+  <div class="col-md-12 ">
+    <div class="gray ">
+      <div class="title">
+        CVD Health Score
+      </div>
+      <div class="portlet-body form">
+
+        <form class="ui form">
+          <div class="form-body">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">First Name English
+                  </label>
+                  <input type="text" name="firstname" [(ngModel)]="cvdscore.firstname" class="form-control" readonly="readonly">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Second Name English
+                  </label>
+                  <input type="text" class="form-control" readonly="readonly" name="secondname" [(ngModel)]="cvdscore.secondname">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Grand Father Name English</label>
+                  <input type="text" class="form-control" readonly="readonly" name="grandfathername" [(ngModel)]="cvdscore.grandfathername">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Last Name English
+                  </label>
+                  <input type="text" class="form-control" readonly="readonly" name="lastname" [(ngModel)]="cvdscore.lastname">
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Gender
+                  </label>
+                  <input type="text" name="gender" [(ngModel)]="cvdscore.gender" class="form-control" readonly="readonly">
+
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Date of Birth
+                  </label>
+                  <input type="text" class="form-control" readonly="readonly" name="birthdate" [(ngModel)]="cvdscore.birthdate">
+
+
+
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Age
+                  </label>
+                  <input type="text" class="form-control" readonly="readonly" name="age" [(ngModel)]="cvdscore.age">
+
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Nationality</label>
+                  <input type="text" class="form-control" readonly="readonly" name="nationality" [(ngModel)]="cvdscore.nationality">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Smoker</label>
+                  <input type="text" class="form-control" readonly="readonly" name="doyousmoke" [(ngModel)]="cvdscore.doyousmoke">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Blood Sugar (HbA1c)
+                  </label>
+                  <input type="text" class="form-control" readonly="readonly" name="hba1c" [(ngModel)]="cvdscore.hba1c">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Total Cholesterol</label>
+                  <input type="text" class="form-control" readonly="readonly" name="cholesterol" [(ngModel)]="cvdscore.cholesterol">
+                </div>
+              </div>
+
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Blood Pressure</label>
+                  <input type="text" class="form-control" readonly="readonly" name="bloodpressure" [(ngModel)]="cvdscore.bloodpressure">
+                </div>
+              </div>
+
+
+            </div>
+            <div class="divider"></div>
+            
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Risk Summary</label>
+                  <textarea style="height:150px;" class="form-control" readonly="readonly" name="message" [(ngModel)]="cvdscore.riskmessage"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="form-actions text-right">
+              <button class="btn default rounded" type="button" (click)="bsModalRef.hide()">Close</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
