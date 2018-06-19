@@ -36,6 +36,16 @@ export class GoalreportV1Component implements OnInit {
   public first_exercise_vigorous_points:string="";
   public first_smoker_shisha_points:string="";
   public first_smoker_cigarette_points:string="";
+  public first_hdlc_message:string="";
+  public first_ldlc_message:string="";
+  public first_totalcholesterol_message:string="";
+  public first_triglycerides_message:string="";
+  public first_hba1c_message:string="";
+  public first_bmi_message:string="";
+  public first_exercise_moderate_message:string="";
+  public first_exercise_vigorous_message:string="";
+  public first_smoker_shisha_message:string="";
+  public first_smoker_cigarette_message:string="";
   public second_hdlc:string="";
   public second_ldlc:string="";
   public second_totalcholesterol:string="";
@@ -56,6 +66,16 @@ export class GoalreportV1Component implements OnInit {
   public second_exercise_vigorous_points:string="";
   public second_smoker_shisha_points:string="";
   public second_smoker_cigarette_points:string="";
+  public second_hdlc_message:string="";
+  public second_ldlc_message:string="";
+  public second_totalcholesterol_message:string="";
+  public second_triglycerides_message:string="";
+  public second_hba1c_message:string="";
+  public second_bmi_message:string="";
+  public second_exercise_moderate_message:string="";
+  public second_exercise_vigorous_message:string="";
+  public second_smoker_shisha_message:string="";
+  public second_smoker_cigarette_message:string="";
   public target_hdlc:string="";
   public target_ldlc:string="";
   public target_totalcholesterol:string="";
@@ -90,26 +110,32 @@ getSelectedVisit(){
         if(visit.test=="HDLC"){
           this.first_hdlc=visit.result;
           this.first_hdlc_points=visit.result_points;
+          this.first_hdlc_message=visit.message;
           this.target_hdlc=visit.target;
         }else if(visit.test=="LDLC"){
           this.first_ldlc=visit.result;
           this.first_ldlc_points=visit.result_points;
+          this.first_ldlc_message=visit.message;
           this.target_ldlc=visit.target;
         }else if(visit.test=="BMI"){
           this.first_bmi=visit.result;
           this.first_bmi_points=visit.result_points;
+          this.first_bmi_message=visit.message;
           this.target_bmi=visit.target;
         }else if(visit.test=="Cholesterol"){
           this.first_totalcholesterol=visit.result;
           this.first_totalcholesterol_points=visit.result_points;
+          this.first_totalcholesterol_message=visit.message;
           this.target_totalcholesterol=visit.target;
         }else if(visit.test=="Triglycerides"){
           this.first_triglycerides=visit.result;
           this.first_triglycerides_points=visit.result_points;
+          this.first_triglycerides_message=visit.message;
           this.target_triglycerides=visit.target;
         }else if(visit.test=="HbA1c"){
           this.first_hba1c=visit.result;
           this.first_hba1c_points=visit.result_points;
+          this.first_hba1c_message=visit.message;
           this.target_hba1c=visit.target;
         }
       });
@@ -120,24 +146,31 @@ getSelectedVisit(){
         if(visit.test=="HDLC"){
           this.second_hdlc=visit.result;
           this.second_hdlc_points=visit.result_points;
+          this.second_hdlc_message=visit.message;
         }else if(visit.test=="LDLC"){
           this.second_ldlc=visit.result;
           this.second_ldlc_points=visit.result_points;
+          this.second_ldlc_message=visit.message;
         }else if(visit.test=="BMI"){
           this.second_bmi=visit.result;
           this.second_bmi_points=visit.result_points;
+          this.second_bmi_message=visit.message;
         }else if(visit.test=="Cholesterol"){
           this.second_totalcholesterol=visit.result;
           this.second_totalcholesterol_points=visit.result_points;
+          this.second_totalcholesterol_message=visit.message;
         }else if(visit.test=="Triglycerides"){
           this.second_triglycerides=visit.result;
           this.second_triglycerides_points=visit.result_points;
+          this.second_triglycerides_message=visit.message;
         }else if(visit.test=="HbA1c"){
           this.second_hba1c=visit.result;
           this.second_hba1c_points=visit.result_points;
+          this.second_hba1c_message=visit.message;
         }else if(visit.test=="BMI"){
           this.second_bmi=visit.result;
           this.second_bmi_points=visit.result_points;
+          this.second_bmi_message=visit.message;
         }
       });
     }
