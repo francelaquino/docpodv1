@@ -4,6 +4,7 @@ import { PatientsearchComponent } from '../patient/patientsearch/patientsearch.c
 import { PatientupdateComponent } from '../patient/patientupdate/patientupdate.component';
 import { PatientvisitComponent } from '../visit/patientvisit/patientvisit.component';
 import { GoalreportV1Component } from '../goalsetting/goalreport-v1/goalreport-v1.component';
+import { LoginComponent } from '../login/login.component';
 //import { CreateorderComponent } from '../patientorder/createorder/createorder.component';
 //import { PatientorderComponent } from '../patientorder/patientorder/patientorder.component';
 //import { VieworderComponent } from '../patientorder/vieworder/vieworder.component';
@@ -16,11 +17,12 @@ const appRoutes: Routes = [
     { path: 'patient/search', component: PatientsearchComponent },
     { path: 'visit/patientvisit', component: PatientvisitComponent },
     { path: 'goalsetting/reportv1', component: GoalreportV1Component },
+    { path: 'login', component: LoginComponent },
   //  { path: 'patientorder/createorder', component: CreateorderComponent },
 //    { path: 'patientorder/patientorder', component: PatientorderComponent },
     //{ path: 'patientorder/survey1', component: Questionaire1Component },
     //{ path: 'patientorder/healthscorev1', component: HealthscoreV1Component },
-    //{ path: '**', component: NotfoundComponent }, //always last
+    { path: '**', component: LoginComponent }, //always last
   ];
   
   export const AppRouting = RouterModule.forRoot(appRoutes, { 

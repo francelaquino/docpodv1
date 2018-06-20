@@ -1,0 +1,56 @@
+
+<div class="page-content-wrapper">
+  <ul class="page-breadcrumb breadcrumb">
+    <li>
+      <span>Login</span>
+      <i class="fa fa-chevron-right"></i>
+
+    </li>
+  </ul>
+
+
+  <div class="page-content-inner">
+    
+    <div class="row" >
+      <div class="col-md-3 " style="margin:auto;min-width:400px">
+        
+        <div class="portlet gray ">
+          
+          <div class="title">
+            Login  to DocPod
+          </div>
+          <div class="portlet-body form">
+            
+            <form  [formGroup]="form" class="ui form"  >
+              <div class="form-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group" [ngClass]="hasError('username')">
+                        <label class="control-label">Username</label>
+                        <input type="text" id="username" autocomplete="off" maxlength="50" formControlName="username" name="username" class="form-control ">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group" [ngClass]="hasError('password')">
+                        <label class="control-label">Password</label>
+                        <input type="text" id="password" autocomplete="off" maxlength="50" formControlName="password" name="password" class="form-control">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="form-actions text-right">
+                  <button class="btn btn-primary rounded" type="button" id="btnSubmit"  (click)="onSubmit()" >Login</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p-growl [(value)]="msgs"></p-growl>

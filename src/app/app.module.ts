@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {DataTableModule,SharedModule,MenubarModule ,MenuModule,GrowlModule,CalendarModule,DialogModule} from 'primeng/primeng';
+import {DataTableModule,SharedModule,MenubarModule ,MessageModule,MenuModule,GrowlModule,CalendarModule,DialogModule} from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {ToolbarModule} from 'primeng/toolbar';
 import { AppComponent } from './app.component';
@@ -25,6 +25,7 @@ import { CvdscoreV1Component } from './visit/cvdscore-v1/cvdscore-v1.component';
 import { PrediabeticscoreV1Component } from './visit/prediabeticscore-v1/prediabeticscore-v1.component';
 import { OverallscoreV1Component } from './visit/overallscore-v1/overallscore-v1.component';
 import { GoalreportV1Component } from './goalsetting/goalreport-v1/goalreport-v1.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,11 +40,12 @@ import { GoalreportV1Component } from './goalsetting/goalreport-v1/goalreport-v1
     CvdscoreV1Component,
     PrediabeticscoreV1Component,
     OverallscoreV1Component,
-    GoalreportV1Component
+    GoalreportV1Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,AppRouting,BrowserAnimationsModule,DataTableModule,SharedModule,MenuModule,CalendarModule,DialogModule,FormsModule,
-    ReactiveFormsModule,HttpModule,HttpClientModule,ModalModule.forRoot(),TableModule,ToolbarModule
+    ReactiveFormsModule,HttpModule,HttpClientModule,ModalModule.forRoot(),TableModule,ToolbarModule,MessageModule,GrowlModule
   ],
   entryComponents: [
     PatientupdateComponent,ResultComponent,SurveyV1Component,HealthscoreV1Component,CvdscoreV1Component,PrediabeticscoreV1Component,OverallscoreV1Component
