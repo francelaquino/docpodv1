@@ -110,6 +110,12 @@ export class PatientService {
       getCVDScore_v1(medicalno: string, visitno: string) {
         return this.http.get(this.baseUrl + '/' + 'analysis/cvdreport_v1/' + medicalno + '/' + visitno)
       }
+
+      getGoalSetting_v1(medicalno: string, visitno1: string, visitno2: string) {
+        return this.http.get(this.baseUrl + '/' + 'analysis/goalsetting_v1/' + medicalno + '/' + visitno1+"/"+visitno2)
+      }
+
+      
       
 
 

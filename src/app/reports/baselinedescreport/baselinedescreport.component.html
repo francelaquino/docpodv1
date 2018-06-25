@@ -1,0 +1,72 @@
+<div class="page-content-wrapper">
+
+
+
+    <div class="page-content-inner">
+  
+      <div class="report">
+        <div class="report_title">
+          <img src="../../../assets/images/docpod.png">
+          <h5 class="title">Baseline Descriptive Report</h5>
+          <span class="print_date">Printed Date : June 25, 2018</span>
+         </div>
+        <table class="header">
+          <tr>
+            <td>
+              <span class="label">Medical No. : </span>
+              <span class="value">{{patientinfo.medicalno}}</span>
+            </td>
+            <td>
+                <span class="label">Patient Name : </span>
+                <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
+              </td>
+          </tr>
+          <tr>
+            <td>
+                <span class="label">Birthdate : </span>
+              <span class="value">{{patientinfo.birthdate}}</span>
+            </td>
+            <td>
+              <span class="label">Age : </span>
+              <span class="value">{{patientinfo.age}}</span>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                  <span class="label">Gender : </span>
+                  <span class="value">{{patientinfo.gender}}</span>
+              </td>
+              <td>
+                <span class="label">Nationality : </span>
+                <span class="value">{{patientinfo.nationality}}</span>
+              </td>
+            </tr>
+        </table>
+        <div class="body">
+            <table class="table ">
+                <tbody>
+                  <tr *ngFor="let h of healthscore">
+                    <td>
+                        <h6>{{h.test}} </h6>
+                        <div>
+                            <p>{{h.result1}}
+                            </p>
+                            <p>{{h.message}}</p>
+                          </div>
+                    </td>
+                    <td style="vertical-align:middle">
+                        <img style="width:100px" src="../../../assets/images/speedometer.png">
+                      
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+
+        </div>
+      </div>
+  
+  
+    </div>
+  </div>
+  
+  

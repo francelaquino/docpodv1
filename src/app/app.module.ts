@@ -26,6 +26,10 @@ import { PrediabeticscoreV1Component } from './visit/prediabeticscore-v1/prediab
 import { OverallscoreV1Component } from './visit/overallscore-v1/overallscore-v1.component';
 import { GoalreportV1Component } from './goalsetting/goalreport-v1/goalreport-v1.component';
 import { LoginComponent } from './login/login.component';
+import { BaselinereportComponent } from './reports/baselinereport/baselinereport.component';
+import { BaselinedescreportComponent } from './reports/baselinedescreport/baselinedescreport.component';
+import { PrediabeticreportComponent } from './reports/prediabeticreport/prediabeticreport.component';
+import { CvdreportComponent } from './reports/cvdreport/cvdreport.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +45,11 @@ import { LoginComponent } from './login/login.component';
     PrediabeticscoreV1Component,
     OverallscoreV1Component,
     GoalreportV1Component,
-    LoginComponent
+    LoginComponent,
+    BaselinereportComponent,
+    BaselinedescreportComponent,
+    PrediabeticreportComponent,
+    CvdreportComponent
   ],
   imports: [
     BrowserModule,AppRouting,BrowserAnimationsModule,DataTableModule,SharedModule,MenuModule,CalendarModule,DialogModule,FormsModule,

@@ -115,6 +115,7 @@
                     <th scope="col" style="width:150px">Target Result</th>
                     <th scope="col" style="width:150px">Second Result<br>Visit No</th>
                     <th scope="col" style="width:100px">Points</th>
+                    <th scope="col" style="width:100px">Goal Setting Message</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -125,6 +126,7 @@
                     <td>{{target_hdlc}}</td>
                     <td>{{second_hdlc}}</td>
                     <td >{{second_hdlc_points}}</td>
+                    <td >{{goalsetting.hdlc_message}}</td>
                   </tr>
                   <tr>
                     <td>LDLC (Bad Cholesterol)</td>
@@ -133,6 +135,7 @@
                     <td>{{target_ldlc}}</td>
                     <td>{{second_ldlc}}</td>
                     <td>{{second_ldlc_points}}</td>
+                    <td>{{goalsetting.ldlc_message}}</td>
                   </tr>
                   <tr>
                     <td>Total Cholesterol</td>
@@ -141,6 +144,7 @@
                     <td>{{target_totalcholesterol}}</td>
                     <td>{{second_totalcholesterol}}</td>
                     <td>{{second_totalcholesterol_points}}</td>
+                    <td>{{goalsetting.totalcholesterol_message}}</td>
                   </tr>
                   <tr>
                     <td>Triglycerides</td>
@@ -149,6 +153,7 @@
                     <td>{{target_triglycerides}}</td>
                     <td>{{second_triglycerides}}</td>
                     <td>{{second_triglycerides_points}}</td>
+                    <td>{{goalsetting.triglycerides_message}}</td>
                   </tr>
                   <tr>
                     <td>HbA1c</td>
@@ -157,6 +162,7 @@
                     <td>{{target_hba1c}}</td>
                     <td>{{second_hba1c}}</td>
                     <td>{{second_hba1c_points}}</td>
+                    <td>{{goalsetting.hba1c_message}}</td>
                   </tr>
                   <tr>
                     <td>BMI</td>
@@ -165,23 +171,19 @@
                     <td>{{target_bmi}}</td>
                     <td>{{second_bmi}}</td>
                     <td>{{second_bmi_points}}</td>
+                    <td></td>
                   </tr>
                   <tr>
-                    <td>Exercise (Moderate)</td>
-                    <td>{{first_exercise_moderate}}</td>
-                    <td>{{first_exercise_moderate_points}}</td>
-                    <td>{{target_exercise_moderate}}</td>
-                    <td>{{second_exercise_moderate}}</td>
-                    <td>{{second_exercise_moderate_points}}</td>
+                    <td *ngIf="first_exercise_type===''">Exercise</td>
+                    <td *ngIf="first_exercise_type!==''">{{first_exercise_type}}</td>
+                    <td>{{first_exercise}}</td>
+                    <td>{{first_exercise_points}}</td>
+                    <td>{{target_exercise}}</td>
+                    <td>{{second_exercise}}</td>
+                    <td>{{second_exercise_points}}</td>
+                    <td>{{goalsetting.exercise_message}}</td>
                   </tr>
-                  <tr>
-                    <td>Exercise (Vigorous)</td>
-                    <td>{{first_exercise_vigorous}}</td>
-                    <td>{{first_exercise_vigorous_points}}</td>
-                    <td>{{target_exercise_vigorous}}</td>
-                    <td>{{second_exercise_vigorous}}</td>
-                    <td>{{second_exercise_vigorous_points}}</td>
-                  </tr>
+                  
 
                   <tr>
                     <td>Smoker (Shisha)</td>
@@ -190,6 +192,7 @@
                     <td>{{target_smoker_shisha}}</td>
                     <td>{{second_smoker_shisha}}</td>
                     <td>{{second_smoker_shisha_points}}</td>
+                    <td>{{goalsetting.smoker_shisha_message}}</td>
                   </tr>
                   <tr>
                     <td>Smoker (Cigarette)</td>
@@ -198,6 +201,7 @@
                     <td>{{target_smoker_cigarette}}</td>
                     <td>{{second_smoker_cigarette}}</td>
                     <td>{{second_smoker_cigarette_points}}</td>
+                    <td>{{goalsetting.smoker_cigarette_message}}</td>
                   </tr>
 
                 </tbody>

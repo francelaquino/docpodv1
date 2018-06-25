@@ -4,6 +4,10 @@ import { PatientsearchComponent } from '../patient/patientsearch/patientsearch.c
 import { PatientupdateComponent } from '../patient/patientupdate/patientupdate.component';
 import { PatientvisitComponent } from '../visit/patientvisit/patientvisit.component';
 import { GoalreportV1Component } from '../goalsetting/goalreport-v1/goalreport-v1.component';
+import { BaselinereportComponent } from '../reports/baselinereport/baselinereport.component';
+import { BaselinedescreportComponent } from '../reports/baselinedescreport/baselinedescreport.component';
+import { PrediabeticreportComponent } from '../reports/prediabeticreport/prediabeticreport.component';
+import { CvdreportComponent } from '../reports/cvdreport/cvdreport.component';
 import { LoginComponent } from '../login/login.component';
 //import { CreateorderComponent } from '../patientorder/createorder/createorder.component';
 //import { PatientorderComponent } from '../patientorder/patientorder/patientorder.component';
@@ -17,6 +21,10 @@ const appRoutes: Routes = [
     { path: 'patient/search', component: PatientsearchComponent },
     { path: 'visit/patientvisit', component: PatientvisitComponent },
     { path: 'goalsetting/reportv1', component: GoalreportV1Component },
+    { path: 'reports/baselinereport', component: BaselinereportComponent },
+    { path: 'reports/baselinedescriptivereport', component: BaselinedescreportComponent },
+    { path: 'reports/prediabeticreport', component: PrediabeticreportComponent },
+    { path: 'reports/cvdreport', component: CvdreportComponent },
     { path: 'login', component: LoginComponent },
   //  { path: 'patientorder/createorder', component: CreateorderComponent },
 //    { path: 'patientorder/patientorder', component: PatientorderComponent },

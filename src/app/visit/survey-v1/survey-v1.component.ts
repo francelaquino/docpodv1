@@ -168,7 +168,7 @@ export class SurveyV1Component implements OnInit {
     if (this.form.valid) {
       
       this.patientService.saveSurvey_v1(this.form.value).subscribe(response => {
-       
+       alert("Survey successfully saved");
       });
       
 

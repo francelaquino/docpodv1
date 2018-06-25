@@ -1,0 +1,86 @@
+<div class="page-content-wrapper">
+
+
+
+  <div class="page-content-inner">
+
+    <div class="report">
+      <div class="report_title">
+        <img src="../../../assets/images/docpod.png">
+        <h5 class="title">Cardiovascular Disease Report</h5>
+        <span class="print_date">Printed Date : June 25, 2018</span>
+      </div> 
+      <table class="header table-bordered ">
+        <tr>
+          <td>
+            <span class="label">Medical No. : </span>
+            <span class="value">{{patientinfo.medicalno}}</span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="label">Patient Name : </span>
+              <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
+            </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="label">Birthdate : </span>
+            <span class="value">{{patientinfo.birthdate}}</span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="label">Age : </span>
+              <span class="value">{{patientinfo.age}}</span>
+            </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="label">Gender : </span>
+            <span class="value">{{patientinfo.gender}}</span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="label">Nationality : </span>
+              <span class="value">{{patientinfo.nationality}}</span>
+            </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="label">Smoker : </span>
+            <span class="value">{{cvdscore.doyousmoke}}</span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="label">Blood Sugar (HbA1c) : </span>
+              <span class="value">{{cvdscore.hba1c}}</span>
+            </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="label">Total Cholesterol : </span>
+            <span class="value">{{cvdscore.cholesterol}}</span>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="label">Blood Pressure : </span>
+              <span class="value">{{cvdscore.bloodpressure}}</span>
+            </td>
+          </tr>
+        <tr>
+          <td colspan="2">
+            <span class="label">Risk Summary : </span>
+            <span class="value">{{cvdscore.message}}</span>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+
+
+</div>

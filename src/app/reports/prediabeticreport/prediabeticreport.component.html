@@ -1,0 +1,121 @@
+<div class="page-content-wrapper">
+
+
+
+    <div class="page-content-inner">
+  
+      <div class="report">
+        <div class="report_title">
+          <img src="../../../assets/images/docpod.png">
+          <h5 class="title">Pre-Diabetic Report</h5>
+          <span class="print_date">Printed Date : June 25, 2018</span>
+         </div>
+        <table class="header">
+          <tr>
+            <td>
+              <span class="label">Medical No. : </span>
+              <span class="value">{{patientinfo.medicalno}}</span>
+            </td>
+            <td>
+                <span class="label">Patient Name : </span>
+                <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
+              </td>
+          </tr>
+          <tr>
+            <td>
+                <span class="label">Birthdate : </span>
+              <span class="value">{{patientinfo.birthdate}}</span>
+            </td>
+            <td>
+              <span class="label">Age : </span>
+              <span class="value">{{patientinfo.age}}</span>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                  <span class="label">Gender : </span>
+                  <span class="value">{{patientinfo.gender}}</span>
+              </td>
+              <td>
+                <span class="label">Nationality : </span>
+                <span class="value">{{patientinfo.nationality}}</span>
+              </td>
+            </tr>
+        </table>
+        <div class="body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                  <tr >
+                    <th ></th>
+                    <th >Results</th>
+                    <th >Points</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Age</td>
+                    <td class="text-center">{{prediabetic.age}}</td>
+                    <td class="text-center">{{prediabetic.agescore}}</td>
+                  </tr>
+                  <tr>
+                    <td>Gender</td>
+                    <td class="text-center">{{prediabetic.gender}}</td>
+                    <td class="text-center">{{prediabetic.genderscore}}</td>
+                  </tr>
+                  <tr>
+                    <td>If you have ever been pregnant, did you have diabetes during your pregnancy(gestational diabetes)?</td>
+                    <td class="text-center">
+                      <span *ngIf="prediabetic.diabeteswhenpregnantscore==1">Yes</span>
+                      <span *ngIf="prediabetic.diabeteswhenpregnantscore==0">No</span>
+                    </td>
+                    <td class="text-center">{{prediabetic.diabeteswhenpregnantscore}}</td>
+                  </tr>
+                  <tr>
+                    <td>Has your mother, father, brother or sister ever been diagnosed with diabetes?</td>
+                    <td class="text-center">
+                      <span *ngIf="prediabetic.familywithdiabeticscore==1">Yes</span>
+                      <span *ngIf="prediabetic.familywithdiabeticscore==0">No</span>
+                    </td>
+                    <td class="text-center">{{prediabetic.familywithdiabeticscore}}</td>
+                  </tr>
+                  <tr>
+                    <td>Have you ever been diagnosed with high blood pressure?</td>
+                    <td class="text-center">
+                      <span *ngIf="prediabetic.bloodpressurescore==1">Yes</span>
+                      <span *ngIf="prediabetic.bloodpressurescore==0">No</span>
+                    </td>
+                    <td class="text-center">{{prediabetic.bloodpressurescore}}</td>
+                  </tr>
+                  <tr>
+                    <td>Are you physically active?</td>
+                    <td class="text-center">
+                      <span *ngIf="prediabetic.physicallyactivescore==0">Yes</span>
+                      <span *ngIf="prediabetic.physicallyactivescore==1">No</span>
+                    </td>
+                    <td class="text-center">{{prediabetic.physicallyactivescore}}</td>
+                  </tr>
+                  <tr>
+                    <td>BMI</td>
+                    <td class="text-center">{{prediabetic.bmi}}({{prediabetic.bmimark}})</td>
+                    <td class="text-center">{{prediabetic.bmiscore}}</td>
+                  </tr>
+                  <tr>
+                    <td>If you have more than 5 points, you are likely to have pre-diabetes and be at risk of developing type 2 diabetes</td>
+                    <td>Total Risk Score</td>
+                    <td>
+                        <div class="badge-points {{prediabetic.color}}">{{prediabetic.totalscore}}</div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">{{prediabetic.message}}</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+  
+  
+    </div>
+  </div>
+  
+  
