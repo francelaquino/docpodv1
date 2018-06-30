@@ -8,6 +8,7 @@ import { BaselinereportComponent } from '../reports/baselinereport/baselinerepor
 import { BaselinedescreportComponent } from '../reports/baselinedescreport/baselinedescreport.component';
 import { PrediabeticreportComponent } from '../reports/prediabeticreport/prediabeticreport.component';
 import { CvdreportComponent } from '../reports/cvdreport/cvdreport.component';
+import { ProgressreportComponent } from '../reports/progressreport/progressreport.component';
 import { LoginComponent } from '../login/login.component';
 //import { CreateorderComponent } from '../patientorder/createorder/createorder.component';
 //import { PatientorderComponent } from '../patientorder/patientorder/patientorder.component';
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
     { path: 'reports/baselinedescriptivereport', component: BaselinedescreportComponent },
     { path: 'reports/prediabeticreport', component: PrediabeticreportComponent },
     { path: 'reports/cvdreport', component: CvdreportComponent },
+    { path: 'reports/progressreport', component: ProgressreportComponent },
     { path: 'login', component: LoginComponent },
   //  { path: 'patientorder/createorder', component: CreateorderComponent },
 //    { path: 'patientorder/patientorder', component: PatientorderComponent },
