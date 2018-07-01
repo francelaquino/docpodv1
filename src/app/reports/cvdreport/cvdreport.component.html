@@ -7,10 +7,16 @@
     <div class="report">
       <div class="report_title">
         <img src="../../../assets/images/docpod.png">
-        <h5 class="title">Cardiovascular Disease Report</h5>
-        <span class="print_date">Printed Date : June 25, 2018</span>
+        <h5 class="title">Your Risk of Developing Heart Disease</h5>
+        <h6 class="title" style="font-size:12px">(Base on the information you provided and biometric results)</h6>
       </div> 
       <table class="header table-bordered ">
+          <tr>
+              <td>
+                <span class="label">Colsultation Date: </span>
+                <span class="value">{{patientinfo.nationality}}</span>
+              </td>
+            </tr>
         <tr>
           <td>
             <span class="label">Medical No. : </span>
@@ -47,6 +53,7 @@
               <span class="value">{{patientinfo.nationality}}</span>
             </td>
           </tr>
+
         <tr>
           <td>
             <span class="label">Smoker : </span>

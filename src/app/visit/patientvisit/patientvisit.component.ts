@@ -72,6 +72,24 @@ export class PatientvisitComponent implements OnInit {
         this.bsModalRef.content.visitno = this.visitno;
   }
 
+  
+public showBaselineReport(){
+  var win = window.open("../reports/baselinereport?mrno="+this.medicalno+"&visitno="+this.visitno);
+}
+
+public showBaselineDescReport(){
+  var win = window.open("../reports/baselinedescriptivereport?mrno="+this.medicalno+"&visitno="+this.visitno);
+}
+public showCVDReport(){
+  var win = window.open("../reports/cvdreport?mrno="+this.medicalno+"&visitno="+this.visitno);
+}
+public showPreDiabeticReport(){
+  var win = window.open("../reports/prediabeticreport?mrno="+this.medicalno+"&visitno="+this.visitno);
+}
+
+
+
+
   public showSurvey_v1() {
       
     this.bsModalRef = this.modalService.show(SurveyV1Component, {animated: true, keyboard: true, backdrop: true, ignoreBackdropClick: false,class: 'modal-questioanaire'});
@@ -85,6 +103,7 @@ public showHealthScore_v1() {
     this.bsModalRef.content.medicalno = this.medicalno;
     this.bsModalRef.content.visitno = this.visitno;
 }
+
 
 public showCVDScore_v1() {
       

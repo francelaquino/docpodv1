@@ -23,9 +23,11 @@ export class BaselinedescreportComponent implements OnInit {
       this.visitno=params["visitno"];
       this.patientService.getPatientDetailsMedicalNo(this.medicalno).subscribe(response => {
         this.patientinfo=response;
+        
        });
       this.patientService.getDocPodReport_v1(this.medicalno,this.visitno).subscribe(response => {
         this.healthscore=response;
+        console.log(response)
        });
       
     })

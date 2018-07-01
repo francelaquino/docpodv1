@@ -41,16 +41,25 @@
               <span class="value">{{patientinfo.nationality}}</span>
             </td>
           </tr>
+          <tr>
+            <td colspan="4">
+              Previously diagnosed with diabetes : Yes/No
+            </td>
+           
+          </tr>
+
+          
       </table>
+
       <div class="body">
           <table >
                 <tr>
                   <th scope="col">Test</th>
-                  <th scope="col">Healthy Values<br/>(Target)</th>
-                  <th scope="col">Healthy Points<br/>(Target)</th>
+                  <th scope="col">Healthy Values</th>
+                  <th scope="col">Healthy Score</th>
                   <th scope="col">Your Results</th>
                   <th scope="col">Your Risk Category</th>
-                  <th scope="col">Your Points</th>
+                  <th scope="col">Your Score</th>
                 </tr>
               <tbody>
                 <tr *ngFor="let h of healthscore">
@@ -67,7 +76,7 @@
                     <div class="badge-points {{h.color}}">{{h.result_points}}</div>
                   </td>
                 </tr>
-                <tr><td colspan="5" class="text-right padding"><h6>Total Points :&nbsp;</h6> </td><td class="text-center padding"><h6>{{totalpoints}}</h6></td></tr>
+                <tr><td></td><td></td><td>Total Health Points</td><td colspan="2" class="text-right padding"><h6>Total Points :&nbsp;</h6> </td><td class="text-center padding"><h6>{{totalpoints}}</h6></td></tr>
   
               </tbody>
             </table>
