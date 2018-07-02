@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder, FormControl} from '@angular/forms';
 import { DataService} from '../../services/data.service';
 import { PatientService} from '../../services/patient.service';
+
 declare var jquery: any;
 declare var $: any;
 @Component({
@@ -66,8 +67,8 @@ export class GoalreportV1Component implements OnInit {
   public target_smoker_shisha:string="";
   public target_smoker_cigarette:string="";
   public goalsetting:any=[];
-  constructor( public dataService:DataService,public patientService:PatientService, private fb:FormBuilder) { }
 
+  constructor(public dataService:DataService,public patientService:PatientService, private fb:FormBuilder) { }
   ngOnInit() {
     this.patientorders=[];
     this.form= this.fb.group({
@@ -138,22 +139,22 @@ getSelectedVisit(){
       this.visitno2=this.visitno;
       response.forEach( (visit) => {
         if(visit.test=="HDLC"){
-          this.second_hdlc=visit.result;
+          this.second_hdlc=visit.result+visit.unit;
           this.second_hdlc_points=visit.result_points;
         }else if(visit.test=="LDLC"){
-          this.second_ldlc=visit.result;
+          this.second_ldlc=visit.result+visit.unit;
           this.second_ldlc_points=visit.result_points;
         }else if(visit.test=="BMI"){
-          this.second_bmi=visit.result;
+          this.second_bmi=visit.result+visit.unit;
           this.second_bmi_points=visit.result_points;
         }else if(visit.test=="Cholesterol"){
-          this.second_totalcholesterol=visit.result;
+          this.second_totalcholesterol=visit.result+visit.unit;
           this.second_totalcholesterol_points=visit.result_points;
         }else if(visit.test=="Triglycerides"){
-          this.second_triglycerides=visit.result;
+          this.second_triglycerides=visit.result+visit.unit;
           this.second_triglycerides_points=visit.result_points;
         }else if(visit.test=="HbA1c"){
-          this.second_hba1c=visit.result;
+          this.second_hba1c=visit.result+visit.unit;
           this.second_hba1c_points=visit.result_points;
         }else if(visit.test=="Smoking Cigarettes"){
           this.second_smoker_cigarette=visit.result;

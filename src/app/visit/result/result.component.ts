@@ -68,15 +68,14 @@ export class ResultComponent implements OnInit {
     if(this.form.get("height").value=="" || this.form.get("weight").value==""){
       return false;
     }
-    let bmi=this.form.get("weight").value/(this.form.get("height").value*this.form.get("height").value);
-
+    let bmi=(this.form.get("weight").value/(this.form.get("height").value*this.form.get("height").value)).toFixed(2);
     this.form.patchValue({
       bmi: bmi
     })
   }
 
   onSubmit(){
-    let bmi=this.form.get("weight").value/(this.form.get("height").value*this.form.get("height").value);
+    let bmi=(this.form.get("weight").value/(this.form.get("height").value*this.form.get("height").value)).toFixed(2);
 
     this.form.patchValue({
       medicalno: this.medicalno,

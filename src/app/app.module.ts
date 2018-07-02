@@ -12,6 +12,7 @@ import {DataTableModule,SharedModule,MenubarModule ,MessageModule,MenuModule,Gro
 import {TableModule} from 'primeng/table';
 import {ToolbarModule} from 'primeng/toolbar';
 import {ChartModule} from 'primeng/chart';
+import { AmChartsModule } from "@amcharts/amcharts3-angular";
 import { AppComponent } from './app.component';
 import { PatientregistrationComponent } from './patient/patientregistration/patientregistration.component';
 import { PatientsearchComponent } from './patient/patientsearch/patientsearch.component';
@@ -56,7 +57,7 @@ import { ProgressreportComponent } from './reports/progressreport/progressreport
   ],
   imports: [
     BrowserModule,AppRouting,BrowserAnimationsModule,DataTableModule,SharedModule,MenuModule,CalendarModule,DialogModule,FormsModule,
-    ReactiveFormsModule,HttpModule,HttpClientModule,ModalModule.forRoot(),TableModule,ToolbarModule,MessageModule,GrowlModule,ChartModule
+    ReactiveFormsModule,HttpModule,HttpClientModule,ModalModule.forRoot(),TableModule,ToolbarModule,MessageModule,GrowlModule,ChartModule,AmChartsModule
   ],
   entryComponents: [
     PatientupdateComponent,ResultComponent,SurveyV1Component,HealthscoreV1Component,CvdscoreV1Component,PrediabeticscoreV1Component,OverallscoreV1Component

@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService} from '../../services/patient.service';
 import { ActivatedRoute } from '@angular/router';
+import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 declare var jquery: any;
 declare var $: any;
 @Component({
@@ -88,9 +89,9 @@ export class ProgressreportComponent implements OnInit {
   public second_exercise_vigorous_message:string="";
   public second_smoker_shisha_message:string="";
   public second_smoker_cigarette_message:string="";
+  private chart: AmChart;
 
-
-  constructor(private patientService:PatientService,private route: ActivatedRoute) {
+  constructor(private AmCharts: AmChartsService,private patientService:PatientService,private route: ActivatedRoute) {
     
 
    }
@@ -188,6 +189,24 @@ export class ProgressreportComponent implements OnInit {
   })
 
   }
+
+  
+  ngAfterViewInit() {
+    this.chart = this.AmCharts.makeChart("chartdiv", {
+      "type": "serial",
+      "theme": "light",
+      "dataProvider": []
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.chart) {
+      this.AmCharts.destroyChart(this.chart);
+    }
+  }
+
+
+
   ngOnInit() {
 
     this.options = {
