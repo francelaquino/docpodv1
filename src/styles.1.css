@@ -56,39 +56,18 @@ p-growl {
     background-color: white;
     margin:auto;
 }
-.report table{
+.header{
     width: 100%;
-}
-.divider{
-    border-bottom:1px solid #2f3030;
 }
 .title{
     font-size: 15px;
 }
 .report_title{
-    text-align: left;
-    height: 70px;
-}
-.report_title .title_holder{
-    width:400px;
-    float: left;
+    text-align: center;
+    padding: 5px;
 }
 .report_title h5{
-   
-    color:#1b7448;
-    text-align: left;
-    font-size: 19px;
-    text-transform:uppercase;
-  
-   
-}
-
-.report_title h6{
-    color:#2f3030;
-}
-.report_title .logo{
-    float: right;
-    width: 180px;
+    margin:10px;
 }
 .print_date{
     font-size: 12px;
@@ -110,13 +89,14 @@ p-growl {
     border: 1px solid #43474c;
     text-indent: 5px;
 }
-.report td{
+.header td{
+    border: 1px solid #2e363f;
     padding:2px;
     width: 50%;
 }
 .label{
     color:black;
-    width: 90px;
+    width: 100px;
     font-size:13px;
     line-height: 30px;
     vertical-align: top;

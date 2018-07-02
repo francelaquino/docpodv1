@@ -5,12 +5,25 @@
   <div class="page-content-inner">
 
     <div class="report">
-      <div class="report_title">
-        <img src="../../../assets/images/docpod.png">
-        <h5 class="title">Baseline Report</h5>
-        <span class="print_date">Printed Date : June 25, 2018</span>
-       </div>
-      <table class="header">
+        <div class="report_title">
+
+            <div class="title_holder"  style="margin-top:20px" >
+              <h5>Your Baseline Report</h5>
+            </div>
+            <img class="logo" src="../../../assets/images/docpod.png">
+          </div>
+          <div class="divider"></div>
+
+
+     
+      <table>
+          <tr>
+              <td>
+                <span class="label">Colsultation Date: </span>
+                <span class="value">{{visitdate}}</span>
+              </td>
+    
+            </tr>
         <tr>
           <td>
             <span class="label">Medical No. : </span>
@@ -42,30 +55,33 @@
             </td>
           </tr>
           <tr>
-            <td colspan="4">
-              Previously diagnosed with diabetes : Yes/No
+             
+            <td colspan="2">
+              Previously diagnosed with diabetes : {{alreadyhavediabetic}}
             </td>
            
           </tr>
 
           
       </table>
-
-      <div class="body">
-          <table >
-                <tr>
-                  <th scope="col">Test</th>
-                  <th scope="col">Healthy Values</th>
-                  <th scope="col">Healthy Score</th>
-                  <th scope="col">Your Results</th>
-                  <th scope="col">Your Risk Category</th>
-                  <th scope="col">Your Score</th>
-                </tr>
-              <tbody>
+      <div class="divider"></div>
+      <table >
+          <tr>
+            <th  >Test</th>
+            <th style="min-width:100px">Healthy Values</th>
+            <th style="width:50px">Healthy Score</th>
+            <th style="width:10px">&nbsp;</th>
+            <th style="min-width:200px">Your Results</th>
+            <th style="min-width:200px">Your Risk Category</th>
+            <th style="width:50px" >Your Score</th>
+          </tr>
+          <tr><td colspan="7"><div class="divider"></div></td></tr>
+               
                 <tr *ngFor="let h of healthscore">
                   <td>{{h.test}}</td>
                   <td>{{h.target}}</td>
                   <td class="text-center"><div class="badge-points green">{{h.target_points}}</div></td>
+                  <td>&nbsp;</td>
                   <td>{{h.result}}{{h.unit}}</td>
                   <td>
                     <div *ngIf="h.risk_category" >
@@ -76,11 +92,19 @@
                     <div class="badge-points {{h.color}}">{{h.result_points}}</div>
                   </td>
                 </tr>
-                <tr><td></td><td></td><td>Total Health Points</td><td colspan="2" class="text-right padding"><h6>Total Points :&nbsp;</h6> </td><td class="text-center padding"><h6>{{totalpoints}}</h6></td></tr>
+                <tr><td colspan="7"><div class="divider"></div></td></tr>
+                <tr>
+                  <td></td>
+                  <td class="text-right padding"><h6>Total Health Points :&nbsp;</h6> </td> 
+                  <td class="text-center padding"><h6>{{totalhealthpoints}}</h6></td>
+                  <td></td>
+                  <td></td>
+                  <td class="text-right padding"><h6>Total Points :&nbsp;</h6> </td>
+                  <td class="text-center padding"><h6>{{totalpoints}}</h6></td>
+                </tr>
+                <tr><td colspan="7"><div class="divider"></div></td></tr>
   
-              </tbody>
             </table>
-      </div>
     </div>
 
 

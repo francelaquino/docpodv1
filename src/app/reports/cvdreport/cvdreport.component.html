@@ -6,88 +6,108 @@
 
     <div class="report">
       <div class="report_title">
-        <img src="../../../assets/images/docpod.png">
-        <h5 class="title">Your Risk of Developing Heart Disease</h5>
-        <h6 class="title" style="font-size:12px">(Base on the information you provided and biometric results)</h6>
-      </div> 
-      <table class="header table-bordered ">
-          <tr>
-              <td>
-                <span class="label">Colsultation Date: </span>
-                <span class="value">{{patientinfo.nationality}}</span>
-              </td>
-            </tr>
+
+        <div class="title_holder">
+          <h5>Your Risk of Developing Heart Disease</h5>
+          <h6 class="title" style="font-size:12px">(Base on the information you provided and biometric results)</h6>
+        </div>
+        <img class="logo" src="../../../assets/images/docpod.png">
+      </div>
+      <div class="divider"></div>
+      <table>
         <tr>
+          <td>
+            <span class="label">Colsultation Date: </span>
+            <span class="value">{{cvdscore.visitdate}}</span>
+          </td>
+
+        </tr>
+
+        <tr>
+
           <td>
             <span class="label">Medical No. : </span>
             <span class="value">{{patientinfo.medicalno}}</span>
           </td>
+
+          <td>
+            <span class="label">Patient Name : </span>
+            <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
+          </td>
+
         </tr>
-        <tr>
-            <td>
-              <span class="label">Patient Name : </span>
-              <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
-            </td>
-          </tr>
+
         <tr>
           <td>
             <span class="label">Birthdate : </span>
             <span class="value">{{patientinfo.birthdate}}</span>
           </td>
+          <td>
+            <span class="label">Age : </span>
+            <span class="value">{{patientinfo.age}}</span>
+          </td>
+
         </tr>
-        <tr>
-            <td>
-              <span class="label">Age : </span>
-              <span class="value">{{patientinfo.age}}</span>
-            </td>
-          </tr>
         <tr>
           <td>
             <span class="label">Gender : </span>
             <span class="value">{{patientinfo.gender}}</span>
           </td>
+          <td>
+            <span class="label">Nationality : </span>
+            <span class="value">{{patientinfo.nationality}}</span>
+          </td>
         </tr>
-        <tr>
-            <td>
-              <span class="label">Nationality : </span>
-              <span class="value">{{patientinfo.nationality}}</span>
-            </td>
-          </tr>
+
+
+      </table>
+      <div class="divider"></div>
+      <table>
+
+
+
+
 
         <tr>
+
           <td>
             <span class="label">Smoker : </span>
             <span class="value">{{cvdscore.doyousmoke}}</span>
           </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="label">Blood Sugar (HbA1c) : </span>
-              <span class="value">{{cvdscore.hba1c}}</span>
-            </td>
-          </tr>
-        <tr>
           <td>
-            <span class="label">Total Cholesterol : </span>
-            <span class="value">{{cvdscore.cholesterol}}</span>
+            <span class="label">Blood Sugar (HbA1c) : </span>
+            <span class="value">{{cvdscore.hba1c}}{{cvdscore.hba1c_unit}}</span>
           </td>
         </tr>
+
         <tr>
-            <td>
-              <span class="label">Blood Pressure : </span>
-              <span class="value">{{cvdscore.bloodpressure}}</span>
-            </td>
-          </tr>
+
+          <td>
+            <span class="label">Total Cholesterol : </span>
+            <span class="value">{{cvdscore.cholesterol}}{{cvdscore.cholesterol_unit}}</span>
+          </td>
+          <td>
+            <span class="label">Blood Pressure : </span>
+            <span class="value">{{cvdscore.bloodpressure}}</span>
+          </td>
+        </tr>
+
+      </table>
+      <div class="divider"></div>
+      <table>
         <tr>
+
           <td colspan="2">
-            <span class="label">Risk Summary : </span>
+            <span class="label" style="font-weight:bold">Risk Summary : </span>
             <span class="value">{{cvdscore.message}}</span>
           </td>
         </tr>
       </table>
+
 
     </div>
   </div>
 
 
 </div>
+

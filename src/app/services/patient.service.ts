@@ -75,9 +75,12 @@ export class PatientService {
 
   }
   
-
   getDocPodReport_v1(medicalno: string, visitno: string) {
     return this.http.get(this.baseUrl + '/' + 'analysis/healthscore_v2/' + medicalno + '/' + visitno)
+  }
+
+  getVisitData(medicalno: string, visitno: string) {
+    return this.http.get(this.baseUrl + '/' + 'visit/getresults/' + medicalno + '/' + visitno)
   }
 
   getSurvey_v1(medicalno: string, visitno: string) {
