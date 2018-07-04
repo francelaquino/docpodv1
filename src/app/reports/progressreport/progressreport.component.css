@@ -1,0 +1,28 @@
+.results_holder{
+    width:100%;
+    height: 300px;;
+    border: 1px solid gray;
+    border-top: 0px solid gray;
+}
+.first{
+    border-top: 1px solid gray !important;
+}
+
+.chart{
+    width:300px;
+    height: 300px;
+    border-right:1px solid gray;
+    float: left;
+}
+
+.amchart{
+    width:300px;
+    height: 300px;
+}
+.findings{
+    width: 670px;
+    height: 300px;
+    float: left;
+    padding:10px;
+}
+

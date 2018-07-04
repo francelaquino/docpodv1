@@ -1,7 +1,8 @@
 body,
 html {
-    background: url(/assets/images/bodyBg.png) repeat #fff !important;
+    /*background: url(/assets/images/bodyBg.png) repeat #fff !important;*/
     font-size: 14px !important;
+    background-color: white !important;
 }
 
 .ng-cloak {
@@ -21,7 +22,8 @@ html {
 
 .page-content-inner {
     padding: 15px !important;
-    background: url(/assets/images/bodyBg.png) repeat #fff !important;
+    /*background: url(/assets/images/bodyBg.png) repeat #fff !important;*/
+    background-color: white !important;
 }
 
 .navbar-nav {

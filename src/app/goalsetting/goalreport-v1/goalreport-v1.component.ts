@@ -20,6 +20,7 @@ export class GoalreportV1Component implements OnInit {
   public visitno2:string="";
   public patientorders:any=[];
   public first_hdlc:string="";
+  public first_bp:string="";
   public first_ldlc:string="";
   public first_totalcholesterol:string="";
   public first_triglycerides:string="";
@@ -29,6 +30,7 @@ export class GoalreportV1Component implements OnInit {
   public first_smoker_shisha:string="";
   public first_smoker_cigarette:string="";
   public first_hdlc_points:string="";
+  public first_bp_points:string="";
   public first_ldlc_points:string="";
   public first_totalcholesterol_points:string="";
   public first_triglycerides_points:string="";
@@ -38,6 +40,7 @@ export class GoalreportV1Component implements OnInit {
   public first_exercise_points:string="";
   public first_smoker_shisha_points:string="";
   public first_smoker_cigarette_points:string="";
+  public second_bp:string="";
   public second_hdlc:string="";
   public second_ldlc:string="";
   public second_totalcholesterol:string="";
@@ -47,6 +50,7 @@ export class GoalreportV1Component implements OnInit {
   public second_exercisee:string="";
   public second_smoker_shisha:string="";
   public second_smoker_cigarette:string="";
+  public second_bp_points:string="";
   public second_hdlc_points:string="";
   public second_ldlc_points:string="";
   public second_totalcholesterol_points:string="";
@@ -57,6 +61,7 @@ export class GoalreportV1Component implements OnInit {
   public second_exercise_points:string="";
   public second_smoker_shisha_points:string="";
   public second_smoker_cigarette_points:string="";
+  public target_bp:string="";
   public target_hdlc:string="";
   public target_ldlc:string="";
   public target_totalcholesterol:string="";
@@ -98,6 +103,10 @@ getSelectedVisit(){
           this.first_hdlc=visit.result+visit.unit;
           this.first_hdlc_points=visit.result_points;
           this.target_hdlc=visit.target;
+        }else if(visit.test=="Blood Pressure"){
+            this.first_bp=visit.result+visit.unit;
+            this.first_bp_points=visit.result_points;
+            this.target_bp=visit.target;
         }else if(visit.test=="LDLC"){
           this.first_ldlc=visit.result+visit.unit;
           this.first_ldlc_points=visit.result_points;
@@ -141,6 +150,9 @@ getSelectedVisit(){
         if(visit.test=="HDLC"){
           this.second_hdlc=visit.result+visit.unit;
           this.second_hdlc_points=visit.result_points;
+        }else if(visit.test=="Blood Pressure"){
+          this.second_bp=visit.result+visit.unit;
+          this.second_bp_points=visit.result_points;
         }else if(visit.test=="LDLC"){
           this.second_ldlc=visit.result+visit.unit;
           this.second_ldlc_points=visit.result_points;
@@ -198,6 +210,18 @@ getPatientDetails(){
 onRowSelect(event){
   this.visitno=event.data.visitno;
 
+}
+
+showProgressiveReport(){
+  if(this.form.value.medicalno==""){
+    alert("Please provide patient information")
+    return false;
+  }
+  if(this.visitno1=="" || this.visitno2==""){
+    alert("Please provide details for two visits")
+  }else{
+    var win = window.open("../reports/progressreport?mrno="+this.form.value.medicalno+"&visitno1="+this.visitno1+"&visitno2="+this.visitno2);
+  }
 }
 
 getPatientVisits(){

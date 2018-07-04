@@ -1,42 +1,45 @@
-<div class="page-content-wrapper">
-
-
-
+<div  class="page-content-wrapper">
   <div class="page-content-inner">
+      <div  class=" loading">
+      
+          <p style="width:100%;text-align:center;margin-top:10%">
+              Please wait while loading data<br>
+              <img style="width:200px;" src="../../../assets/images/loading.gif"/>
+              <br>
+            </p></div>
+            <div class="report" style="display:none">
+      <div class="report_title">
 
-    <div class="report">
-        <div class="report_title">
-
-            <div class="title_holder"  style="margin-top:20px" >
-              <h5>Your Baseline Report</h5>
-            </div>
-            <img class="logo" src="../../../assets/images/docpod.png">
-          </div>
-          <div class="divider"></div>
+        <div class="title_holder" style="margin-top:20px">
+          <h5>Your Baseline Report</h5>
+        </div>
+        <img class="logo" src="../../../assets/images/docpod.png">
+      </div>
+      <div class="divider"></div>
 
 
-     
+
       <table>
-          <tr>
-              <td>
-                <span class="label">Colsultation Date: </span>
-                <span class="value">{{visitdate}}</span>
-              </td>
-    
-            </tr>
+        <tr>
+          <td>
+            <span class="label">Colsultation Date: </span>
+            <span class="value">{{visitdate}}</span>
+          </td>
+
+        </tr>
         <tr>
           <td>
             <span class="label">Medical No. : </span>
             <span class="value">{{patientinfo.medicalno}}</span>
           </td>
           <td>
-              <span class="label">Patient Name : </span>
-              <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
-            </td>
+            <span class="label">Patient Name : </span>
+            <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
+          </td>
         </tr>
         <tr>
           <td>
-              <span class="label">Birthdate : </span>
+            <span class="label">Birthdate : </span>
             <span class="value">{{patientinfo.birthdate}}</span>
           </td>
           <td>
@@ -45,66 +48,74 @@
           </td>
         </tr>
         <tr>
-            <td>
-                <span class="label">Gender : </span>
-                <span class="value">{{patientinfo.gender}}</span>
-            </td>
-            <td>
-              <span class="label">Nationality : </span>
-              <span class="value">{{patientinfo.nationality}}</span>
-            </td>
-          </tr>
-          <tr>
-             
-            <td colspan="2">
-              Previously diagnosed with diabetes : {{alreadyhavediabetic}}
-            </td>
-           
-          </tr>
+          <td>
+            <span class="label">Gender : </span>
+            <span class="value">{{patientinfo.gender}}</span>
+          </td>
+          <td>
+            <span class="label">Nationality : </span>
+            <span class="value">{{patientinfo.nationality}}</span>
+          </td>
+        </tr>
+        <tr>
 
-          
+          <td colspan="2">
+            <span class="value"> Previously diagnosed with diabetes : {{alreadyhavediabetic}}</span>
+
+          </td>
+
+        </tr>
+
+
       </table>
-      <div class="divider"></div>
-      <table >
-          <tr>
-            <th  >Test</th>
-            <th style="min-width:100px">Healthy Values</th>
-            <th style="width:50px">Healthy Score</th>
-            <th style="width:10px">&nbsp;</th>
-            <th style="min-width:200px">Your Results</th>
-            <th style="min-width:200px">Your Risk Category</th>
-            <th style="width:50px" >Your Score</th>
-          </tr>
-          <tr><td colspan="7"><div class="divider"></div></td></tr>
-               
-                <tr *ngFor="let h of healthscore">
-                  <td>{{h.test}}</td>
-                  <td>{{h.target}}</td>
-                  <td class="text-center"><div class="badge-points green">{{h.target_points}}</div></td>
-                  <td>&nbsp;</td>
-                  <td>{{h.result}}{{h.unit}}</td>
-                  <td>
-                    <div *ngIf="h.risk_category" >
-                      {{h.risk_category}}
-                    </div>
-                  </td>
-                  <td class="text-center">
-                    <div class="badge-points {{h.color}}">{{h.result_points}}</div>
-                  </td>
-                </tr>
-                <tr><td colspan="7"><div class="divider"></div></td></tr>
-                <tr>
-                  <td></td>
-                  <td class="text-right padding"><h6>Total Health Points :&nbsp;</h6> </td> 
-                  <td class="text-center padding"><h6>{{totalhealthpoints}}</h6></td>
-                  <td></td>
-                  <td></td>
-                  <td class="text-right padding"><h6>Total Points :&nbsp;</h6> </td>
-                  <td class="text-center padding"><h6>{{totalpoints}}</h6></td>
-                </tr>
-                <tr><td colspan="7"><div class="divider"></div></td></tr>
-  
-            </table>
+      <div class="divider" style="margin-bottom:10px"></div>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th></th>
+          <th style="min-width:100px">Healthy Values</th>
+          <th style="width:50px">Healthy Score</th>
+          <th style="min-width:200px">Your Results</th>
+          <th style="min-width:200px">Your Risk Category</th>
+          <th style="width:50px">Your Score</th>
+        </tr>
+        
+        <tr *ngFor="let h of healthscore">
+          <td>{{h.test}}</td>
+          <td>{{h.target}}</td>
+          <td class="text-center">
+            <div class="badge-points green">{{h.target_points}}</div>
+          </td>
+          <td>{{h.result}}{{h.unit}}</td>
+          <td>
+            <div *ngIf="h.risk_category">
+              {{h.risk_category}}
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="badge-points {{h.color}}">{{h.result_points}}</div>
+          </td>
+        </tr>
+        
+        <tr>
+            <td></td>
+          <td class="text-right padding">
+            <h6>Total Health Points &nbsp;</h6>
+          </td>
+          <td class="text-center padding">
+            <h6>{{totalhealthpoints}}</h6>
+          </td>
+          <td></td>
+          <td class="text-right padding">
+            <h6>Total Score &nbsp;</h6>
+          </td>
+          <td class="text-center padding">
+            <h6>{{totalpoints}}</h6>
+          </td>
+        </tr>
+        
+
+      </table>
+      <div class="amchart" id="chart"></div>
     </div>
 
 

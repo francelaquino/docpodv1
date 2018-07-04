@@ -2,68 +2,149 @@
 
 
 
-    <div class="page-content-inner">
-  
-      <div class="report">
+  <div class="page-content-inner">
+      <div  class=" loading">
+      
+          <p style="width:100%;text-align:center;margin-top:10%">
+              Please wait while loading data<br>
+              <img style="width:200px;" src="../../../assets/images/loading.gif"/>
+              <br>
+            </p></div>
+    <div class="report" style="display:none">
         <div class="report_title">
-          <img src="../../../assets/images/docpod.png">
-          <h5 class="title">What does it all mean?</h5>
-         </div>
-        <table class="header">
-          <tr>
-            <td>
-              <span class="label">Medical No. : </span>
-              <span class="value">{{patientinfo.medicalno}}</span>
-            </td>
-            <td>
-                <span class="label">Patient Name : </span>
-                <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
-              </td>
-          </tr>
-          <tr>
-            <td>
-                <span class="label">Birthdate : </span>
-              <span class="value">{{patientinfo.birthdate}}</span>
-            </td>
-            <td>
-              <span class="label">Age : </span>
-              <span class="value">{{patientinfo.age}}</span>
-            </td>
-          </tr>
-          <tr>
-              <td>
-                  <span class="label">Gender : </span>
-                  <span class="value">{{patientinfo.gender}}</span>
-              </td>
-              <td>
-                <span class="label">Nationality : </span>
-                <span class="value">{{patientinfo.nationality}}</span>
-              </td>
-            </tr>
-        </table>
-        <div class="body">
-            <table class="table ">
-                <tbody>
-                  <tr *ngFor="let h of healthscore">
-                    <td>
-                        <h6>{{h.test}} : {{h.result}}{{h.unit}}</h6>
-                        <div>
-                            <p style="text-indent:0px">{{h.result1}}. {{h.message}}</p>
-                          </div>
-                    </td>
-                    <td style="vertical-align:middle">
-                        <img style="width:100px" src="../../../assets/images/speedometer.png">
-                      
-                    </td>
-                  </tr>
-                </tbody>
-            </table>
 
+            <div class="title_holder" style="margin-top:20px">
+              <h5>What does it all mean?</h5>
+            </div>
+            <img class="logo" src="../../../assets/images/docpod.png">
+          </div>
+          <div class="divider"></div>
+
+    
+      <table >
+          <tr>
+              <td>
+                <span class="label">Colsultation Date: </span>
+                <span class="value">{{visitdate}}</span>
+              </td>
+    
+            </tr>
+        <tr>
+          <td>
+            <span class="label">Medical No. : </span>
+            <span class="value">{{patientinfo.medicalno}}</span>
+          </td>
+          <td>
+            <span class="label">Patient Name : </span>
+            <span class="value">{{patientinfo.firstname}} {{patientinfo.secondname}} {{patientinfo.lastname}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="label">Birthdate : </span>
+            <span class="value">{{patientinfo.birthdate}}</span>
+          </td>
+          <td>
+            <span class="label">Age : </span>
+            <span class="value">{{patientinfo.age}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="label">Gender : </span>
+            <span class="value">{{patientinfo.gender}}</span>
+          </td>
+          <td>
+            <span class="label">Nationality : </span>
+            <span class="value">{{patientinfo.nationality}}</span>
+          </td>
+        </tr>
+      </table>
+
+      <div class="results_holder first">
+          <div class="findings">
+            <p class="results">{{bp}}</p>
+            <p>{{bp_message}}</p>
+           </div>
+        <div class="chart">
+          <div class="amchart" id="chartBP"></div>
         </div>
       </div>
-  
-  
+
+      <div class="results_holder ">
+        <div class="findings">
+          <p class="results">{{hdlc}}</p>
+          <p>{{hdlc_message}}</p>
+          </div>
+        <div class="chart">
+          <div class="amchart" id="chartHDLC"></div>
+        </div>
+      </div>
+
+      <div class="results_holder ">
+          <div class="findings">
+            <p class="results">{{ldlc}} </p>
+            <p>{{ldlc_message}} </p>
+          </div>
+        <div class="chart">
+          <div class="amchart" id="chartLDLC"></div>
+        </div>
+      </div>
+
+      <div class="results_holder ">
+          <div class="findings">
+            <p class="results">{{triglycerides}}</p>
+            <p>{{triglycerides_message}}</p>
+           </div>
+        <div class="chart">
+          <div class="amchart" id="chartTriglycerides"></div>
+        </div>
+      </div>
+
+      <div class="results_holder ">
+          <div class="findings">
+            <p class="results">{{totalcholesterol}} </p>
+            <p>{{totalcholesterol_message}} </p>
+
+          </div>
+        <div class="chart">
+          <div class="amchart" id="chartCholesterol"></div>
+        </div>
+      </div>
+      <div class="results_holder ">
+      <div class="findings">
+        <p class="results">{{hba1c}}</p>
+        <p>{{hba1c_message}}</p>
+       </div>
+        <div class="chart">
+          <div class="amchart" id="chartHba1c"></div>
+        </div>
+      </div>
+
+    <!--  <div class="results_holder ">
+          <div class="findings">{{smoker_cigarette_message}} </div>
+        <div class="chart">
+          <div class="amchart" id="chartCigarette"></div>
+        </div>
+      </div>
+
+      <div class="results_holder ">
+          <div class="findings">{{smoker_shisha_message}} </div>
+        <div class="chart">
+          <div class="amchart" id="chartShisha"></div>
+        </div>
+      </div>
+      <div class="results_holder ">
+          <div class="findings">{{exercise_message}} </div>
+        <div class="chart">
+          <div class="amchart" id="chartExercise"></div>
+        </div>
+      </div>
+
+    -->
+      
     </div>
+
+
   </div>
-  
-  
+</div>

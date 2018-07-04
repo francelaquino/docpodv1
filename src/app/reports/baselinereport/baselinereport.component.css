@@ -1,4 +1,26 @@
 .label{
-    width: 120px;
+    width: 140px;
     
+}
+
+th{
+    text-align: center;
+}
+
+td{
+    padding:5px;
+}
+
+.chart{
+    width:300px;
+    height: 300px;
+    border-left:1px solid gray;
+    float: left;
+    padding-top:20px;
+}
+
+.amchart{
+    width:300px;
+    height: 300px;
+    margin:auto;
 }

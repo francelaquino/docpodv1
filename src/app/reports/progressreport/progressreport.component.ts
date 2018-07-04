@@ -13,14 +13,6 @@ declare var $: any;
 export class ProgressreportComponent implements OnInit {
 
   public goalsetting:any=[];
-  dataCigarette:any;
-  dataShisha:any;
-  dataHbA1c:any;
-  dataTriglycerides:any;
-  dataCholesterol: any;
-  dataHDLC: any;
-  dataLDLC: any;
-  options:any;
   healthscore:any=[];
   medicalno:string;
   visitno1:string;
@@ -49,6 +41,7 @@ export class ProgressreportComponent implements OnInit {
   public first_bmi_points:string="";
   public first_exercise_type:string="";
   public first_exercise_points:string="";
+  public first_exercise_color:string="";
   public first_smoker_shisha_points:string="";
   public first_smoker_shisha_color:string="";
   public first_smoker_cigarette_points:string="";
@@ -64,7 +57,8 @@ export class ProgressreportComponent implements OnInit {
   public second_hba1c:string="";
   public second_hba1c_color:string="";
   public second_bmi:string="";
-  public second_exercisee:string="";
+  public second_exercise:string="";
+  public second_exercise_color:string="";
   public second_smoker_shisha:string="";
   public second_smoker_shisha_color:string="";
   public second_smoker_cigarette:string="";
@@ -75,7 +69,6 @@ export class ProgressreportComponent implements OnInit {
   public second_triglycerides_points:string="";
   public second_hba1c_points:string="";
   public second_bmi_points:string="";
-  public second_exercise:string="";
   public second_exercise_points:string="";
   public second_smoker_shisha_points:string="";
   public second_smoker_cigarette_points:string="";
@@ -85,11 +78,20 @@ export class ProgressreportComponent implements OnInit {
   public second_triglycerides_message:string="";
   public second_hba1c_message:string="";
   public second_bmi_message:string="";
-  public second_exercise_moderate_message:string="";
-  public second_exercise_vigorous_message:string="";
+  public second_exercise_message:string="";
   public second_smoker_shisha_message:string="";
   public second_smoker_cigarette_message:string="";
-  private chart: AmChart;
+  private chartHDLC: AmChart;
+  private chartLDLC: AmChart;
+  private chartCholesterol: AmChart;
+  private chartTriglycerides: AmChart;
+  private chartHba1c: AmChart;
+  private chartCigarette: AmChart;
+  private chartShisha: AmChart;
+  private chartExercise: AmChart;
+  //Add Bloodpressure
+  
+  
 
   constructor(private AmCharts: AmChartsService,private patientService:PatientService,private route: ActivatedRoute) {
     
@@ -126,15 +128,16 @@ export class ProgressreportComponent implements OnInit {
           }else if(visit.test=="Smoking Cigarettes"){
             this.first_smoker_cigarette=visit.result;
             this.first_smoker_cigarette_points=visit.result_points;
-            this.first_smoker_cigarette_color=visit.color;
+            this.first_smoker_cigarette_color=visit.colorcode;
           }else if(visit.test=="Smoking Shisha"){
             this.first_smoker_shisha=visit.result;
             this.first_smoker_shisha_points=visit.result_points;
-            this.first_smoker_shisha_color=visit.color;
+            this.first_smoker_shisha_color=visit.colorcode;
           }else if(visit.test=="Moderate Exercise" || visit.test=="Vigorous Exercise"){
-            this.first_exercise_type=visit.test
             this.first_exercise=visit.result;
             this.first_exercise_points=visit.result_points;
+            this.first_exercise_color=visit.colorcode;
+
           }
         }else{
           if(visit.test=="HDLC"){
@@ -162,7 +165,6 @@ export class ProgressreportComponent implements OnInit {
             this.second_triglycerides_message=visit.message;
             this.second_triglycerides_color=visit.colorcode;
           }else if(visit.test=="HbA1c"){
-            console.log(visit)
             this.second_hba1c=visit.result;
             this.second_hba1c_points=visit.result_points;
             this.second_hba1c_message=visit.message;
@@ -175,59 +177,420 @@ export class ProgressreportComponent implements OnInit {
            
             this.second_smoker_cigarette=visit.result;
             this.second_smoker_cigarette_points=visit.result_points;
-            this.second_smoker_cigarette_color=visit.color;
+            this.second_smoker_cigarette_color=visit.colorcode;
             this.second_smoker_cigarette_message=visit.message;
           }else if(visit.test=="Smoking Shisha"){
             this.second_smoker_shisha=visit.result;
             this.second_smoker_shisha_points=visit.result_points;
-            this.second_smoker_shisha_color=visit.color;
+            this.second_smoker_shisha_color=visit.colorcode;
             this.second_smoker_shisha_message=visit.message;
+        }else if(visit.test=="Moderate Exercise" || visit.test=="Vigorous Exercise"){
+          this.second_exercise=visit.result;
+          this.second_exercise_points=visit.result_points;
+          this.second_exercise_color=visit.colorcode;
+          this.second_exercise_message=visit.message;
         }
       }
+
+     
       });
+      setTimeout(() => {
+        this.setChart();
+        $("a[title='JavaScript charts']").remove();
+        $(".loading").hide();
+        $(".report").show();
+      }, 3000);
     
   })
 
   }
 
   
-  ngAfterViewInit() {
-    this.chart = this.AmCharts.makeChart("chartdiv", {
-      "type": "serial",
+  setChart(){
+    this.chartHDLC = this.AmCharts.makeChart("chartHDLC", {
       "theme": "light",
-      "dataProvider": []
-    });
+      "titles": [{
+        "text": "HDLC(Good Cholesterol)"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_hdlc_points,
+        "color": this.first_hdlc_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_hdlc_points,
+            "color": this.second_hdlc_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+
+
+    this.chartLDLC = this.AmCharts.makeChart("chartLDLC", {
+      "theme": "light",
+      "titles": [{
+        "text": "LDLC(Bad Cholesterol)"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_ldlc_points,
+        "color": this.first_ldlc_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_ldlc_points,
+            "color": this.second_ldlc_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+    
+    this.chartCholesterol = this.AmCharts.makeChart("chartCholesterol", {
+      "theme": "light",
+      "titles": [{
+        "text": "Total Cholesterol"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_totalcholesterol_points,
+        "color": this.first_totalcholesterol_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_totalcholesterol_points,
+            "color": this.second_totalcholesterol_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+
+    
+    this.chartTriglycerides = this.AmCharts.makeChart("chartTriglycerides", {
+      "theme": "light",
+      "titles": [{
+        "text": "Triglycerides"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_triglycerides_points,
+        "color": this.first_triglycerides_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_triglycerides_points,
+            "color": this.second_triglycerides_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+
+
+    this.chartHba1c = this.AmCharts.makeChart("chartHba1c", {
+      "theme": "light",
+      "titles": [{
+        "text": "HbA1c"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_hba1c_points,
+        "color": this.first_hba1c_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_hba1c_points,
+            "color": this.second_hba1c_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+
+
+    
+    this.chartCigarette = this.AmCharts.makeChart("chartCigarette", {
+      "theme": "light",
+      "titles": [{
+        "text": "Smoking Cigarette"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_smoker_cigarette_points,
+        "color": this.first_smoker_cigarette_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_smoker_cigarette_points,
+            "color": this.second_smoker_cigarette_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+
+    
+    this.chartShisha = this.AmCharts.makeChart("chartShisha", {
+      "theme": "light",
+      "titles": [{
+        "text": "Smoking Shisha"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_smoker_shisha_points,
+        "color": this.first_smoker_shisha_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_smoker_shisha_points,
+            "color": this.second_smoker_shisha_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+    this.chartExercise = this.AmCharts.makeChart("chartExercise", {
+      "theme": "light",
+      "titles": [{
+        "text": "Exercise"
+      }],
+      "type": "serial",
+      "dataProvider": [{
+        "visit": "V1",
+        "value": this.first_exercise_points,
+        "color": this.first_exercise_color,
+        }, {
+          "visit": "V2",
+            "value": this.second_exercise_points,
+            "color": this.second_exercise_color,
+        }],
+        "graphs": [{
+            "fillAlphas": 1,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "fixedColumnWidth" :30,
+            "valueField": "value",
+            "labelsEnabled": false,
+            "axisColor":"white",
+            "fillColorsField": "color",
+            "labelText": "[[value]]",
+            "labelPosition": "middle",
+            "color": "#fff"
+        }],
+        "depth3D": 20,
+        "labelsEnabled": false,
+        "angle": 30,
+        "categoryField": "visit",
+        "categoryAxis": {
+            "gridPosition": "start",
+            "fillAlpha": 0.05,
+            "position": "left",
+            "labelsEnabled": false,
+        },
+        "valueAxes": [
+          {
+            "labelsEnabled": false,
+          }
+        ]
+    
+    } );
+
+
+
+   
   }
 
-  ngOnDestroy() {
-    if (this.chart) {
-      this.AmCharts.destroyChart(this.chart);
-    }
-  }
 
 
 
   ngOnInit() {
 
-    this.options = {
-      responsive: false,
-      maintainAspectRatio: true,
-      scales: {
-        yAxes: [{
-            ticks: {
-                beginAtZero: true,
-                suggestedMax: 60,
-            }
-        }],
-    },
-      animation: false,
-      tooltips: {
-        enabled:false,
-      },
-      legend: {
-          position: 'false'
-      }
-    };
+    
 
     $(".page-header").hide()
     this.route.queryParams.subscribe(params => {
@@ -241,122 +604,12 @@ export class ProgressreportComponent implements OnInit {
        this.getVisit(this.medicalno,this.visitno2,"second");
         this.patientService.getGoalSetting_v1(this.medicalno,this.visitno1,this.visitno2).subscribe(response => {
           this.goalsetting=response;
-          this.showChart();
-          
         })
-
-      
-
 
     })
           
   }
 
-  showChart(){
-    setTimeout(() => {
-        
-      this.dataHDLC = {
-        labels: ['HDLC (Good Cholesterol)'],
-        datasets: [
-            {
-                backgroundColor: this.first_hdlc_color,
-                data: [Number(this.first_hdlc_points)],
-            },
-            {
-                backgroundColor: this.second_hdlc_color,
-                data: [Number(this.second_hdlc_points)],
-            }
-        ]
-      }
-
-      this.dataLDLC = {
-        labels: ['LDLC (Good Cholesterol)'],
-        datasets: [
-            {
-              backgroundColor: this.first_ldlc_color,
-                data: [Number(this.first_ldlc_points)],
-            },
-            {
-              backgroundColor: this.second_ldlc_color,
-                data: [Number(this.second_ldlc_points)],
-            }
-        ]
-      }
-
-      this.dataCholesterol = {
-        labels: ['Total Cholesterol'],
-        datasets: [
-            {
-              backgroundColor: this.first_totalcholesterol_color,
-                data: [Number(this.first_totalcholesterol_points)],
-            },
-            {
-              backgroundColor: this.second_totalcholesterol_color,
-                data: [Number(this.second_totalcholesterol_points)],
-            }
-        ]
-      }
-
-      
-      this.dataTriglycerides = {
-        labels: ['Triglycerides'],
-        datasets: [
-            {
-              backgroundColor: this.first_triglycerides_color,
-                data: [Number(this.first_triglycerides_points)],
-            },
-            {
-              backgroundColor: this.second_triglycerides_color,
-                data: [Number(this.second_triglycerides_points)],
-            }
-        ]
-      }
-
-      this.dataHbA1c = {
-        labels: ['HbA1c'],
-        datasets: [
-            {
-              backgroundColor: this.first_hba1c_color,
-                data: [Number(this.first_hba1c_points)],
-            },
-            {
-              backgroundColor: this.second_hba1c_color,
-                data: [Number(this.second_hba1c_points)],
-            }
-        ]
-      }
-
-      this.dataCigarette = {
-        labels: ['Cigarette Smoking'],
-        datasets: [
-            {
-              backgroundColor: this.first_smoker_cigarette_color,
-                data: [Number(this.first_smoker_cigarette_points)],
-            },
-            {
-              backgroundColor: this.second_smoker_cigarette_color,
-                data: [Number(this.second_smoker_cigarette_points)],
-            }
-        ]
-      }
-
-      this.dataShisha = {
-        labels: ['Shisha Smoking'],
-        datasets: [
-            {
-              backgroundColor: this.first_smoker_shisha_color,
-                data: [Number(this.first_smoker_shisha_points)],
-            },
-            {
-              backgroundColor: this.second_smoker_shisha_color,
-                data: [Number(this.second_smoker_shisha_points)],
-            }
-        ]
-      }
   
-      
-
-    }, 2000);
-  }
 
 }

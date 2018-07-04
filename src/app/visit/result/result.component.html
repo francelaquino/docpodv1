@@ -13,35 +13,36 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">HBA1C</label>
+                  <label class="control-label">HbA1c(%)</label>
                   <input type="number" formControlName="hba1c" class="form-control">
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">HDLC</label>
+                  <label class="control-label">HDLC(mg/dL)</label>
                   <input type="number" formControlName="hdlc" class="form-control">
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Triglycerides</label>
-                  <input type="number" formControlName="triglycerides" class="form-control">
+                  <label class="control-label">LDLC(mg/dL)</label>
+                  <input type="number" formControlName="ldlc" class="form-control">
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">LDLC</label>
-                  <input type="number" formControlName="ldlc" class="form-control">
+                  <label class="control-label">Triglycerides(mg/dL)</label>
+                  <input type="number" formControlName="triglycerides" class="form-control">
                 </div>
               </div>
+              
 
             </div>
 
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Total Cholesterol</label>
+                  <label class="control-label">Total Cholesterol(189mg/dL)</label>
                   <input type="number" formControlName="totalcholesterol" class="form-control">
                 </div>
               </div>
@@ -59,7 +60,7 @@
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Waist</label>
+                  <label class="control-label">Waist(cm)</label>
                   <input type="number" formControlName="waist" class="form-control">
                 </div>
               </div>
@@ -72,21 +73,21 @@
               <div class="col-md-3">
 
                 <div class="form-group">
-                  <label class="control-label">Weight(kilogram)</label>
+                  <label class="control-label">Weight(kg)</label>
                   <input type="number" (change)="calculateBMI()" formControlName="weight" class="form-control">
                 </div>
               </div>
               <div class="col-md-3">
 
                 <div class="form-group">
-                  <label class="control-label">Height(meter)</label>
+                  <label class="control-label">Height(m)</label>
                   <input type="number" (change)="calculateBMI()" formControlName="height" class="form-control">
                 </div>
               </div>
 
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">BMI</label>
+                  <label class="control-label">BMI(kg/m²)</label>
                   <input type="number" formControlName="bmi" disabled="disabled" class="form-control">
                 </div>
               </div>

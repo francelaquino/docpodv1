@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService} from '../../services/patient.service';
 import { ActivatedRoute } from '@angular/router';
+import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 declare var jquery: any;
 declare var $: any;
 @Component({
@@ -19,7 +20,9 @@ export class BaselinereportComponent implements OnInit {
   totalhealthpoints:number=0;
   visitdate:string="";
   alreadyhavediabetic:string="";
-  constructor(private patientService:PatientService,private route: ActivatedRoute) { }
+  private chart: AmChart;
+  isloading:boolean=true;
+  constructor(private AmCharts: AmChartsService,private patientService:PatientService,private route: ActivatedRoute) { }
 
   ngOnInit() {
     $(".page-header").hide()
@@ -50,10 +53,64 @@ export class BaselinereportComponent implements OnInit {
        });
       
     })
+
+    setTimeout(() => {
+      this.setCHart();
+      $("a[title='JavaScript charts']").remove();
+      $(".loading").hide();
+      $(".report").show();
+    }, 3000);
     
      
     
     
+  }
+
+  setCHart(){
+  
+    this.chart = this.AmCharts.makeChart("chart", {
+      "type": "gauge",
+      "theme": "light",
+      "axes": [ {
+        "axisThickness": 1,
+        "axisAlpha": 0.2,
+        "tickAlpha": 0.2,
+        "valueInterval": 5,
+        "bands": [ {
+          "color": "#0000ff",
+          "endValue": 10,
+          "innerRadius": "70%",
+          "startValue": 0
+        }, {
+          "color": "#008000",
+          "endValue": 30,
+          "innerRadius": "70%",
+          "startValue": 10
+        }, {
+          "color": "#ffbf00",
+          "endValue": 40,
+          "innerRadius": "70%",
+          "startValue": 30
+        },
+        {
+          "color": "#ff0000",
+          "endValue": 60,
+          "innerRadius": "70%",
+          "startValue": 40
+        } ],
+        "bottomText": "",
+        "bottomTextYOffset": -20,
+        "endValue": 60
+      } ],
+      "arrows": [ {
+        "innerRadius": "0%",
+        "nailRadius": 0,
+        "radius": "85%"
+      } ],
+      
+   });
+  
+   
   }
 
 }

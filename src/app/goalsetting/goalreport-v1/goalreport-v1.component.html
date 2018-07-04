@@ -104,6 +104,7 @@
 
                   <button class="btn rounded btn-info" type="button" (click)="visitcontrol='first';getPatientVisits()">Set First Result</button>
                   <button class="btn rounded btn-info" type="button"  (click)="visitcontrol='second';getPatientVisits()">Set Second Result</button>
+                  <button class="btn rounded btn-info" type="button"  (click)="showProgressiveReport()">Progressive Report</button>
                 </div>
               </p-toolbar>
               <table class="table table-bordered table-striped">
@@ -119,6 +120,15 @@
                   </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>Blood Pressure</td>
+                        <td>{{first_bp}}</td>
+                        <td>{{first_bp_points}}</td>
+                        <td>{{target_bp}}</td>
+                        <td>{{second_bp}}</td>
+                        <td >{{second_bp_points}}</td>
+                        <td >{{goalsetting.bloodpressure_message}}</td>
+                      </tr>
                   <tr>
                     <td>HDLC (Good Cholesterol)</td>
                     <td>{{first_hdlc}}</td>
