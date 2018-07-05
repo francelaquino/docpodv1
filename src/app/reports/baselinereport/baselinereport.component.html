@@ -11,7 +11,7 @@
       <div class="report_title">
 
         <div class="title_holder" style="margin-top:20px">
-          <h5>Your Baseline Report</h5>
+          <h5>GENERAL HEALTH OVERVIEW</h5>
         </div>
         <img class="logo" src="../../../assets/images/docpod.png">
       </div>
@@ -19,7 +19,7 @@
 
 
 
-      <table>
+      <table >
         <tr>
           <td>
             <span class="label">Colsultation Date: </span>
@@ -69,53 +69,211 @@
 
       </table>
       <div class="divider" style="margin-bottom:10px"></div>
-      <table class="table table-bordered table-striped">
-        <tr>
-          <th></th>
-          <th style="min-width:100px">Healthy Values</th>
-          <th style="width:50px">Healthy Score</th>
-          <th style="min-width:200px">Your Results</th>
-          <th style="min-width:200px">Your Risk Category</th>
-          <th style="width:50px">Your Score</th>
-        </tr>
+
+      <div class="health_overview">
+        <h5>BLOOD PRESSURE</h5>
+        <table class="table table-bordered table-striped">
+          <tr>
+            <td style="width:150px">Systolic</td>
+            <td  style="width:150px;padding:0px;text-align:center">
+              <div class="yournumber">YOUR NUMBERS</div>
+              {{systolic_points}}</td>
+            <td  style="width:150px;text-align:center">Alert</td>
+            <td style="width:550px;height:50px; vertical-align:middle">
+                <div class="spinner">
+                    <div class="spinner_red" style="width:500px"><p class="spinner_number" style="left:480px">300</p></div>
+                    <div class="spinner_lightred" style="width:265px"><p class="spinner_number" style="left:247px">159</p></div>
+                    <div class="spinner_amber" style="width:231px"><p class="spinner_number" style="left:212px">139</p></div>
+                    <div class="spinner_green" style="width:200px"><p class="spinner_number" style="left:182px">120</p></div>
+                    <div class="spinner_blue" style="width:150px"><p class="spinner_number" style="left:135px">90</p></div>
+                    <div class="spinner_value" [ngStyle]="{ 'left': systolic_value + 'px' }"></div>
+                </div>
+            </td>
+          </tr>
+          <tr>
+              <td style="width:150px">Diastolic</td>
+              <td  style="width:150px;text-align:center">{{diastolic_points}}</td>
+              <td  style="width:150px;text-align:center">Alert</td>
+              <td style="width:550px;height:50px; vertical-align:middle">
+                  <div class="spinner">
+                      <div class="spinner_red" style="width:500px"><p class="spinner_number" style="left:480px">300</p></div>
+                      <div class="spinner_lightred" style="width:265px"><p class="spinner_number" style="left:247px">159</p></div>
+                      <div class="spinner_amber" style="width:231px"><p class="spinner_number" style="left:212px">139</p></div>
+                      <div class="spinner_green" style="width:200px"><p class="spinner_number" style="left:182px">120</p></div>
+                      <div class="spinner_blue" style="width:150px"><p class="spinner_number" style="left:135px">90</p></div>
+                      <div class="spinner_value" [ngStyle]="{ 'left': diastolic_value + 'px' }"></div>
+                  </div>
+              </td>
+            </tr>
+        </table>
+
+        <h5>BLOOD SUGAR</h5>
+        <table class="table table-bordered table-striped">
+         
+          <tr>
+              <td style="width:150px">HbA1c</td>
+              <td  style="width:150px;padding:0px;text-align:center"><div class="yournumber">YOUR NUMBERS</div>{{hba1c_points}}</td>
+              <td  style="width:150px;text-align:center">{{hba1c_traffic}}</td>
+              <td style="width:550px;height:50px; vertical-align:middle">
+                  <div class="spinner">
+                      <div class="spinner_red" style="width:500px"><p class="spinner_number" style="left:485px">16</p></div>
+                      <div class="spinner_lightred" style="width:233px"><p class="spinner_number" style="left:223px">8</p></div>
+                      <div class="spinner_amber" style="width:167px"><p class="spinner_number" style="left:152px">6.4</p></div>
+                      <div class="spinner_yellow" style="width:100px"><p class="spinner_number" style="left:93px">6</p></div>
+                      <div class="spinner_green" style="width:33px"><p class="spinner_number" style="left:13px">5.69</p></div>
+                      <div class="spinner_value" [ngStyle]="{ 'left': hba1c_value + 'px' }"></div>
+                  </div>
+              </td>
+            </tr>
+        </table>
+
+        <h5>CHOLESTEROL</h5>
+        <table class="table table-bordered table-striped">
+         
+          <tr>
+              <td style="width:150px">Total Cholesterol</td>
+              <td  style="width:150px;padding:0px;text-align:center"><div class="yournumber">YOUR NUMBERS</div>{{totalcholesterol_points}}</td>
+              <td  style="width:150px;text-align:center">{{totalcholesterol_traffic}}</td>
+              <td style="width:550px;height:50px; vertical-align:middle">
+                  <div class="spinner">
+                      <div class="spinner_red" style="width:500px"><p class="spinner_number" style="left:485px">500</p></div>
+                      <div class="spinner_amber" style="width:239px"><p class="spinner_number" style="left:220px">239</p></div>
+                      <div class="spinner_green" style="width:189px"><p class="spinner_number" style="left:170px">189</p></div>
+                      <div class="spinner_value" [ngStyle]="{ 'left': totalcholesterol_value + 'px' }"></div>
+                  </div>
+              </td>
+            </tr>
+
+            <tr>
+                <td style="width:150px">HDLC</td>
+                <td  style="width:150px;text-align:center">{{hdlc_points}}</td>
+                <td  style="width:150px;text-align:center">{{hdlc_traffic}}</td>
+                <td style="width:550px;height:50px; vertical-align:middle">
+                    <div class="spinner">
+                        <div class="spinner_green" style="width:500px"><p class="spinner_number" style="left:485px">500</p></div>
+                        <div class="spinner_amber" style="width:148px"><p class="spinner_number" style="left:134px">59</p></div>
+                        <div class="spinner_red" style="width:100px"><p class="spinner_number" style="left:85px">40  </p></div>
+                        <div class="spinner_value" [ngStyle]="{ 'left': hdlc_value + 'px' }"></div>
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                  <td style="width:150px">LDLC</td>
+                  <td  style="width:150px;text-align:center">{{ldlc_points}}</td>
+                  <td  style="width:150px;text-align:center">{{ldlc_traffic}}</td>
+                  <td style="width:550px;height:50px; vertical-align:middle">
+                      <div class="spinner">
+                          <div class="spinner_red" style="width:500px"><p class="spinner_number" style="left:485px">500</p></div>
+                          <div class="spinner_lightred" style="width:265px"><p class="spinner_number" style="left:248px">159</p></div>
+                          <div class="spinner_amber" style="width:215px"><p class="spinner_number" style="left:195px">129</p></div>
+                          <div class="spinner_green" style="width:165px"><p class="spinner_number" style="left:150px">99  </p></div>
+                          <div class="spinner_value" [ngStyle]="{ 'left': ldlc_value + 'px' }"></div>
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+                    <td style="width:150px">Triglycerides</td>
+                    <td  style="width:150px;text-align:center">{{triglycerides_points}}</td>
+                    <td  style="width:150px;text-align:center">{{triglycerides_traffic}}</td>
+                    <td style="width:550px;height:50px; vertical-align:middle">
+                        <div class="spinner">
+                            <div class="spinner_red" style="width:500px"><p class="spinner_number" style="left:450px;width:55px">Above 500</p></div>
+                            <div class="spinner_lightred" style="width:333px"><p class="spinner_number" style="left:316px">499</p></div>
+                            <div class="spinner_amber" style="width:250px"><p class="spinner_number" style="left:230px">199</p></div>
+                            <div class="spinner_green" style="width:83px"><p class="spinner_number" style="left:64px">150  </p></div>
+                            <div class="spinner_value" [ngStyle]="{ 'left': triglycerides_value + 'px' }"></div>
+                        </div>
+                    </td>
+                  </tr>
+        </table>
+
+        <h5>BODY MASS INDEX</h5>
+        <table class="table table-bordered table-striped">
+         
+          <tr *ngIf="patientinfo.southasian=='SA'">
+              <td style="width:150px">BMI</td>
+              <td  style="width:150px;padding:0px;text-align:center"><div class="yournumber">YOUR NUMBERS</div>{{bmi_points}}</td>
+              <td  style="width:150px;text-align:center">Alert</td>
+              <td style="width:550px;height:50px; vertical-align:middle">
+                  <div class="spinner">
+                      <div class="spinner_lightred" style="width:500px"><p class="spinner_number" style="left:485px">60</p></div>
+                      <div class="spinner_amber" style="width:228px"><p class="spinner_number" style="left:207px">27.4</p></div>
+                      <div class="spinner_green" style="width:191px"><p class="spinner_number" style="left:168px">22.9</p></div>
+                      <div class="spinner_blue" style="width:153px"><p class="spinner_number" style="left:127px">18.4</p></div>
+                      <div class="spinner_value" [ngStyle]="{ 'left': bmi_value + 'px' }"></div>
+                  </div>
+              </td>
+            </tr>
+
+            <tr *ngIf="patientinfo.southasian=='NSA'">
+                <td style="width:150px">BMI</td>
+                <td  style="width:150px;text-align:center">{{bmi_points}}</td>
+                <td  style="width:150px;text-align:center">Alert</td>
+                <td style="width:550px;height:50px; vertical-align:middle">
+                    <div class="spinner">
+                        <div class="spinner_red" style="width:500px"><p class="spinner_number" style="left:485px">60</p></div>
+                        <div class="spinner_lightred" style="width:287px"><p class="spinner_number" style="left:265px">34.9</p></div>
+                        <div class="spinner_amber" style="width:249px"><p class="spinner_number" style="left:227px">29.9</p></div>
+                        <div class="spinner_green" style="width:207px"><p class="spinner_number" style="left:187px">24.9</p></div>
+                        <div class="spinner_blue" style="width:153px"><p class="spinner_number" style="left:127px">18.4</p></div>
+                        <div class="spinner_value" [ngStyle]="{ 'left': bmi_value + 'px' }"></div>
+                    </div>
+                </td>
+              </tr>
+
+              <tr *ngIf="patientinfo.southasian=='NSA'">
+                  <td style="width:150px">Waist Size</td>
+                  <td  style="width:150px;text-align:center">{{waist_points}}</td>
+                  <td  style="width:150px;text-align:center">Alert</td>
+                  <td style="width:550px;height:50px; vertical-align:middle">
+                      <div class="spinner">
+                          <div class="spinner_lightred" style="width:500px"><p class="spinner_number" style="left:485px"></p></div>
+                          <div class="spinner_green" style="width:93px"><p class="spinner_number" style="left:83px">93</p></div>
+                          <div class="spinner_value" [ngStyle]="{ 'left': waist_value + 'px' }"></div>
+                      </div>
+                  </td>
+                </tr>
+
+                <tr *ngIf="patientinfo.southasian=='SA'">
+                    <td style="width:150px">Waist Size</td>
+                    <td  style="width:150px;text-align:center">{{waist_points}}</td>
+                    <td  style="width:150px;text-align:center">Alert</td>
+                    <td style="width:550px;height:50px; vertical-align:middle">
+                        <div class="spinner">
+                            <div class="spinner_lightred" style="width:500px"><p class="spinner_number" style="left:485px"></p></div>
+                            <div class="spinner_green" style="width:89px"><p class="spinner_number" style="left:83px">89</p></div>
+                            <div class="spinner_value" [ngStyle]="{ 'left': waist_value + 'px' }"></div>
+                        </div>
+                    </td>
+                  </tr>
+
+           
+        </table>
+
+
+        <h5>LIFESTYLE</h5>
+        <table class="table table-bordered table-striped">
+         
+          <tr>
+              <td style="width:150px">Physical Activity</td>
+              <td  style="width:150px;padding:0px;text-align:center"><div class="yournumber">YOUR NUMBERS</div>{{exercise_value}}</td>
+              <td  style="width:150px;text-align:center">Alert</td>
+              <td style="width:550px;height:50px; vertical-align:middle">
+                  <div class="spinner">
+                      {{exercise_points}}
+                  </div>
+              </td>
+            </tr>
+
+            
+
+             
+
+           
+        </table>
         
-        <tr *ngFor="let h of healthscore">
-          <td>{{h.test}}</td>
-          <td>{{h.target}}</td>
-          <td class="text-center">
-            <div class="badge-points green">{{h.target_points}}</div>
-          </td>
-          <td>{{h.result}}{{h.unit}}</td>
-          <td>
-            <div *ngIf="h.risk_category">
-              {{h.risk_category}}
-            </div>
-          </td>
-          <td class="text-center">
-            <div class="badge-points {{h.color}}">{{h.result_points}}</div>
-          </td>
-        </tr>
-        
-        <tr>
-            <td></td>
-          <td class="text-right padding">
-            <h6>Total Health Points &nbsp;</h6>
-          </td>
-          <td class="text-center padding">
-            <h6>{{totalhealthpoints}}</h6>
-          </td>
-          <td></td>
-          <td class="text-right padding">
-            <h6>Total Score &nbsp;</h6>
-          </td>
-          <td class="text-center padding">
-            <h6>{{totalpoints}}</h6>
-          </td>
-        </tr>
         
 
-      </table>
-      <div class="amchart" id="chart"></div>
     </div>
 
 

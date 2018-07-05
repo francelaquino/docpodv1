@@ -1,0 +1,58 @@
+
+.spinner_box{
+    height:10px;
+    margin-top:5px;
+    position: absolute;
+}
+.spinner_blue{
+    background-color: #0d8ce5;
+    height:10px;
+    margin-top:5px;
+    position: absolute;
+}
+
+.spinner_green{
+    background-color: #48ba84;
+    height:10px;
+    margin-top:5px;
+    position: absolute;
+}
+.spinner_amber{
+    background-color: #faa41b;
+    height:10px;
+    margin-top:5px;
+    position: absolute;
+}
+.spinner_lightred{
+    background-color: #ee3123;
+    height:10px;
+    margin-top:5px;
+    position: absolute;
+}
+
+.spinner_red{
+    background-color: #a81e13;
+    height:10px;
+    margin-top:5px;
+    position: absolute;
+}
+.spinner_number{
+    margin-top:-17px;
+    font-size: 11px;
+    position: absolute;
+}
+
+.spinner{
+    height:10px;
+    width:500px;
+}
+.spinner_value{
+    background-color: white;
+    margin-top: 2px;
+    height: 16px;
+    width:10px;
+    border: 1px solid black;
+    position: absolute;
+    left: 480px;
+
+}
