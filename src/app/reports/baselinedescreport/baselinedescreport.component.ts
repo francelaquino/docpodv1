@@ -55,6 +55,7 @@ export class BaselinedescreportComponent implements OnInit {
   private chartExercise: AmChart;
   private chartBP: AmChart;
   visitdate:string="";
+  public visits:any=[];
   constructor(private AmCharts: AmChartsService,private patientService:PatientService,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -70,7 +71,8 @@ export class BaselinedescreportComponent implements OnInit {
         this.visitdate=response.visitdate;
        });
       this.patientService.getDocPodReport_v1(this.medicalno,this.visitno).subscribe(response => {
-        response.forEach( (visit) => {
+        this.visits=response;
+      /*  response.forEach( (visit) => {
             if(visit.test=="HDLC"){
               this.hdlc=visit.test+" : "+visit.result+visit.unit;
               this.hdlc_points=visit.result_points;
@@ -100,27 +102,18 @@ export class BaselinedescreportComponent implements OnInit {
               this.bp_points=visit.result_points;
               this.bp_message=visit.result1+". "+visit.message;
             }
-            /*else if(visit.test=="Smoking Cigarettes"){
-              this.smoker_cigarette_points=visit.result_points;
-              this.smoker_cigarette_message=visit.result1+". "+visit.message;
-            }else if(visit.test=="Smoking Shisha"){
-              this.smoker_shisha_points=visit.result_points;
-              this.smoker_shisha_message=visit.result1+". "+visit.message;
-            }else if(visit.test=="Moderate Exercise" || visit.test=="Vigorous Exercise"){
-              this.exercise_points=visit.result_points;
-              this.exercise_message=visit.result1+". "+visit.message;
-  
-        }*/
-        })
+            
+        })*/
         
-        setTimeout(() => {
+      /*  setTimeout(() => {
           this.setChart();
           $("a[title='JavaScript charts']").remove();
           $(".loading").hide();
           $(".report").show();
-        }, 3000);
+        }, 3000);*/
 
-        
+        $(".loading").hide();
+        $(".report").show();
       
     })
   })

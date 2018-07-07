@@ -59,19 +59,25 @@
             <span class="value">{{patientinfo.nationality}}</span>
           </td>
         </tr>
+      
       </table>
+      <div style="float:left">
+      <div class="circle" style="background-color:#0000ff"></div><p style="float:left;color:#0000ff;margin-right:4px">AT RISK</p>
+      <div class="circle" style="background-color:#008000"></div><p style="float:left;color:#008000;margin-right:4px">GOOD </p>
+      <div class="circle" style="background-color:#ffbf00" ></div><p style="float:left;color:#ffbf00;margin-right:4px">AT RISK</p>
+      <div class="circle" style="background-color:#ff0000"></div><p style="float:left;color:#ff0000">ALERT </p>
+    </div>
+          <div class="findings" *ngFor="let v of visits">
+            <div style="width:100px;height:20px;float:left;font-weight:bold">{{v.test}}</div>
+            <div style="width:100px;height:20px;float:left;text-align:right" [ngStyle]="{ 'color': v.colorcode }">{{v.result}}{{v.unit}}</div>
+            <div style="width:50px;height:20px;float:left"><div class="circle"  [ngStyle]="{ 'background-color': v.colorcode }"></div></div>
+           
+            <p style="width:100%;float:left;margin-top:5px;" >{{v.message}}</p>
+           
+           
+          </div>
 
-      <div class="results_holder first">
-          <div class="findings">
-            <p class="results">{{bp}}</p>
-            <p>{{bp_message}}</p>
-           </div>
-        <div class="chart">
-          <div class="amchart" id="chartBP"></div>
-        </div>
-      </div>
-
-      <div class="results_holder ">
+      <!--<div class="results_holder ">
         <div class="findings">
           <p class="results">{{hdlc}}</p>
           <p>{{hdlc_message}}</p>
@@ -121,7 +127,7 @@
         </div>
       </div>
 
-    <!--  <div class="results_holder ">
+      <div class="results_holder ">
           <div class="findings">{{smoker_cigarette_message}} </div>
         <div class="chart">
           <div class="amchart" id="chartCigarette"></div>
